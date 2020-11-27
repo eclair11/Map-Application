@@ -1,0 +1,127 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/layout">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Index</title>
+
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+<style type="text/css">
+    #map{ /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+        height:400px;
+        width:800px;
+    }
+    table,
+        td {
+            border: 1px solid #333;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+</style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col" layout:fragment="content">
+                <br />
+
+                
+
+                <!-- Formulaire de mise à jour -->
+                <br />
+                <h1>Requête SparQL</h1>
+                <form th:action="@{/botupdate}" method="post">
+
+                    <input type="text" name="reference" placeholder="Label de l'entité référente" />
+
+                    <input type="text" name="label" placeholder="Nouveau label" />
+
+                    <input type="text" name="description" placeholder="Nouvelle description" />
+
+                    <select name="lang" />
+                    <option th:value="'en'" th:text="Anglais"></option>
+                    <option th:value="'fr'" th:text="Français"></option>
+                    </select>
+
+                    <input type="submit" value="Valider">
+                </form>
+                </br>
+
+                <span th:text="${name}"></span>
+
+                <!--<h3 th:each="coord : ${coords}" th:text="${coord.lat} + ', ' + ${coord.lon}"></h3> -->
+            </br>
+            <table>
+                <tbody>
+                    <tr th:each="coord: ${coords}">
+                        <td th:text="${coord.lat}" />
+                        <td th:text="${coord.lon}" />
+                    </tr>
+                </tbody>
+            </table>
+                
+
+                
+            </br>
+                
+                <div id="map"></div>
+                  
+
+                <script th:inline="javascript">
+                    // On initialise la latitude et la longitude de Paris (centre de la carte)
+                    var lat = 45.448007;
+                    var lon = 4.38609;
+                    var macarte = null;
+
+
+                   var coords = [[${coords}]];
+
+                   
+                    // Fonction d'initialisation de la carte
+                    function initMap() {
+                        // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+                        macarte = L.map('map').setView([lat, lon], 16);
+                        // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+                        L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                            // Il est toujours bien de laisser le lien vers la source des données
+                            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                            minZoom: 1,
+                            maxZoom: 20
+                        }).addTo(macarte);
+
+                        for (coord in coords) {
+                            var marker = L.marker([coords[coord].lat, coords[coord].lon]).addTo(macarte);
+                            // Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
+                            marker.bindPopup(coord);
+                        }  
+
+                        
+
+                    }
+                    window.onload = function(){
+                // Fonction d'initialisation qui s'exécute lorsque le DOM est chargé
+                initMap(); 
+                    };
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+</body>
+</html>
+
+
