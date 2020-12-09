@@ -1,0 +1,8 @@
+{
+  "@id": "http://example.com/person/1234",
+  "@type": "http://schema.org/Person",
+  "http://schema.org/knows": {
+    "@id": "http://example.com/person/2345"
+  },
+  "http://schema.org/name": "Example Name"
+}

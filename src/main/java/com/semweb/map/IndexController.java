@@ -1,9 +1,16 @@
 package com.semweb.map;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.semweb.map.model.Coordinate;
+import com.semweb.map.model.Person;
 import com.semweb.map.model.Reponse;
+import com.semweb.map.model.SparqlHospitalRequestModel;
 import com.semweb.map.utils.OutilCalcul;
 
 import org.springframework.stereotype.Controller;
@@ -15,7 +22,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @RequestMapping("/")
-    public String index(Model model, Reponse reponse) {
+    public String index(Model model, Reponse reponse) throws JsonParseException, JsonMappingException, IOException {
+
+        
+        ObjectMapper objectMapper = new ObjectMapper();
+        SparqlHospitalRequestModel[] sparqlHospitalRequestModel = objectMapper.readValue(new File("query.json"), SparqlHospitalRequestModel [].class);
+
+        for (SparqlHospitalRequestModel sparqlHospitalRequestModel2 : sparqlHospitalRequestModel) {
+            System.out.println(sparqlHospitalRequestModel2);
+        }
+
+        
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        Person person = objectMapper2.readValue(new File("person.jsonld"), Person.class);
+        System.out.println(person);
+
 
         ArrayList<Coordinate> coordList = new ArrayList<>();
 
