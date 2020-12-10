@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Person;
 import com.semweb.map.model.Reponse;
+import com.semweb.map.model.ReponseVille;
 import com.semweb.map.model.SparqlHospitalRequestModel;
 import com.semweb.map.model.SparqlTownRequestModel;
 import com.semweb.map.utils.OutilCalcul;
@@ -23,8 +24,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     @RequestMapping("/")
-    public String index(Model model, Reponse reponse) throws JsonParseException, JsonMappingException, IOException {
+    public String index(Model model, Reponse reponse, ReponseVille reponseVille) throws JsonParseException, JsonMappingException, IOException {
 
+
+        /* Parsing d'un JSon d'une requete sparql des hopitaux  */
         
         ObjectMapper objectMapper = new ObjectMapper();
         SparqlHospitalRequestModel[] sparqlHospitalRequestModel = objectMapper.readValue(new File("query.json"), SparqlHospitalRequestModel [].class);
@@ -33,15 +36,31 @@ public class IndexController {
             System.out.println(sparqlHospitalRequestModel2);
         }
 
+        /* Parsing d'un JSon-ld d'une structure Person, juste pour tester  */
         
         ObjectMapper objectMapper2 = new ObjectMapper();
         Person person = objectMapper2.readValue(new File("person.jsonld"), Person.class);
         System.out.println(person);
 
+
+        /* Parsing d'un JSon-ld de la liste des villes disposant d'au moins un hopital */
+
         ObjectMapper objectMapper3 = new ObjectMapper();
         SparqlTownRequestModel sparqlTownRequestModel = objectMapper3.readValue(new File("request.txt"), SparqlTownRequestModel.class);
-        System.out.println(sparqlTownRequestModel);
 
+        ArrayList<String> townList = new ArrayList<>();
+
+        for (String city : sparqlTownRequestModel.getCity()) {
+            townList.add(city);
+        }
+        
+        model.addAttribute("cities", townList);
+        model.addAttribute("reponseVille", new ReponseVille());
+
+        System.out.println(townList);
+        System.out.println(reponseVille.getName());
+
+        /* Ajout d'une liste de coordonnees pour afficher des pointeurs */
 
         ArrayList<Coordinate> coordList = new ArrayList<>();
 
@@ -53,11 +72,17 @@ public class IndexController {
 
         Coordinate[] coords = { new Coordinate(45.447102, 4.386077) };
 
+        /* Remplissage du modèle */
+
         model.addAttribute("name", "A tous ceux qui detestent Ubisoft, voici les endroits où vous trouverez son plus grand fan, Altaïr");
         model.addAttribute("coords", coordList);
 
+        /* Récupération de la valeur du 1er champs du formulaire */
+
         model.addAttribute("reponse", new Reponse());
         System.out.println(reponse.getReference());
+
+        /* Conversion du format de coordonnees bizarre du fichier CSV */
 
         double lat = 5697636.899570074;
         double lon = 485591.92708257603;
