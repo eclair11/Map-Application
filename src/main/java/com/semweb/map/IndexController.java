@@ -11,6 +11,7 @@ import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Person;
 import com.semweb.map.model.Reponse;
 import com.semweb.map.model.SparqlHospitalRequestModel;
+import com.semweb.map.model.SparqlTownRequestModel;
 import com.semweb.map.utils.OutilCalcul;
 
 import org.springframework.stereotype.Controller;
@@ -36,6 +37,10 @@ public class IndexController {
         ObjectMapper objectMapper2 = new ObjectMapper();
         Person person = objectMapper2.readValue(new File("person.jsonld"), Person.class);
         System.out.println(person);
+
+        ObjectMapper objectMapper3 = new ObjectMapper();
+        SparqlTownRequestModel sparqlTownRequestModel = objectMapper3.readValue(new File("request.txt"), SparqlTownRequestModel.class);
+        System.out.println(sparqlTownRequestModel);
 
 
         ArrayList<Coordinate> coordList = new ArrayList<>();
