@@ -55,7 +55,7 @@
                 </form>
                 </br>
 
-                <span th:text="${name}"></span>
+                <span th:text="${reponse.reference}"></span>
 
                 <!--<h3 th:each="coord : ${coords}" th:text="${coord.lat} + ', ' + ${coord.lon}"></h3> -->
             </br>
@@ -85,7 +85,7 @@
                 <select name="name" class="form-control">
                     <option th:each="city : ${cities}"
                             th:value="${city}"
-                            th:selected="${city eq lastselected}"
+                            th:selected="${reponseVille.name eq city}"
                             th:text="${city}">
                     </option>
                 </select>

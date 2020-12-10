@@ -23,6 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
+    Reponse reponse = new Reponse();
+    ReponseVille ReponseVille = new ReponseVille("");
+
     @RequestMapping("/")
     public String index(Model model, Reponse reponse, ReponseVille reponseVille) throws JsonParseException, JsonMappingException, IOException {
 
@@ -54,8 +57,9 @@ public class IndexController {
             townList.add(city);
         }
         
+        
         model.addAttribute("cities", townList);
-        model.addAttribute("reponseVille", new ReponseVille());
+        model.addAttribute("reponseVille", reponseVille);
 
         System.out.println(townList);
         System.out.println(reponseVille.getName());
@@ -79,7 +83,7 @@ public class IndexController {
 
         /* Récupération de la valeur du 1er champs du formulaire */
 
-        model.addAttribute("reponse", new Reponse());
+        model.addAttribute("reponse", reponse);
         System.out.println(reponse.getReference());
 
         /* Conversion du format de coordonnees bizarre du fichier CSV */
