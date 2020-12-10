@@ -4,18 +4,6 @@
 @prefix wd:    <https://www.wikidata.org/wiki/> .
 @prefix db:    <http://dbpedia.org/ontology/> .
 
-<http://www.wikidata.org/entity/Q90334102>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Thoissey" ;
-        db:name       "hôpital de Thoissey" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4tel%20Dieu%20Thoissey%2017.jpg" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "46.172816" ;
-        ns:longitude  "4.804566" .
-
 <http://www.wikidata.org/entity/Q2945769>
         db:Website    "" ;
         db:address    "" ;
@@ -27,6 +15,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "46.559" ;
         ns:longitude  "0.385" .
+
+<http://www.wikidata.org/entity/Q90334102>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Thoissey" ;
+        db:name       "hôpital de Thoissey" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4tel%20Dieu%20Thoissey%2017.jpg" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "46.172816" ;
+        ns:longitude  "4.804566" .
 
 <http://www.wikidata.org/entity/Q22966967>
         db:Website    "" ;
@@ -112,18 +112,6 @@
         ns:latitude   "45.760884" ;
         ns:longitude  "4.831458" .
 
-<http://www.wikidata.org/entity/Q96604824>
-        db:Website    "" ;
-        db:address    "1 boulevard Richard Wallace" ;
-        db:bedCount   "" ;
-        db:city       "Puteaux" ;
-        db:name       "dispensaire de Puteaux" ;
-        db:picture    "" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.878499728261" ;
-        ns:longitude  "2.2418162564298" .
-
 <http://www.wikidata.org/entity/Q22994628>
         db:Website    "" ;
         db:address    "" ;
@@ -135,6 +123,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "47.777043" ;
         ns:longitude  "0.797944" .
+
+<http://www.wikidata.org/entity/Q96604824>
+        db:Website    "" ;
+        db:address    "1 boulevard Richard Wallace" ;
+        db:bedCount   "" ;
+        db:city       "Puteaux" ;
+        db:name       "dispensaire de Puteaux" ;
+        db:picture    "" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.878499728261" ;
+        ns:longitude  "2.2418162564298" .
 
 <http://www.wikidata.org/entity/Q22998245>
         db:Website    "" ;
@@ -160,17 +160,17 @@
         ns:latitude   "" ;
         ns:longitude  "" .
 
-<http://www.wikidata.org/entity/Q87746094>
+<http://www.wikidata.org/entity/Q2945705>
         db:Website    "" ;
-        db:address    "289 Avenue du Maréchal Joffre" ;
+        db:address    "" ;
         db:bedCount   "" ;
-        db:city       "Perpignan" ;
-        db:name       "Clinique psychiatrique du Roussillon" ;
+        db:city       "Seclin" ;
+        db:name       "centre hospitalier de Seclin" ;
         db:picture    "" ;
-        mo:wikipedia  "" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/Centre_hospitalier_de_Seclin" , "" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "42.720555555556" ;
-        ns:longitude  "2.8856944444444" .
+        ns:latitude   "" ;
+        ns:longitude  "" .
 
 <http://www.wikidata.org/entity/Q1779588>
         db:Website    "" ;
@@ -184,17 +184,17 @@
         ns:latitude   "48.814268" ;
         ns:longitude  "2.255695" .
 
-<http://www.wikidata.org/entity/Q2945705>
+<http://www.wikidata.org/entity/Q87746094>
         db:Website    "" ;
-        db:address    "" ;
+        db:address    "289 Avenue du Maréchal Joffre" ;
         db:bedCount   "" ;
-        db:city       "Seclin" ;
-        db:name       "centre hospitalier de Seclin" ;
+        db:city       "Perpignan" ;
+        db:name       "Clinique psychiatrique du Roussillon" ;
         db:picture    "" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/Centre_hospitalier_de_Seclin" , "" ;
+        mo:wikipedia  "" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "" ;
-        ns:longitude  "" .
+        ns:latitude   "42.720555555556" ;
+        ns:longitude  "2.8856944444444" .
 
 <http://www.wikidata.org/entity/Q30280012>
         db:Website    "" ;
@@ -1012,18 +1012,6 @@
         ns:latitude   "50.177364" ;
         ns:longitude  "3.227507" .
 
-<http://www.wikidata.org/entity/Q89587465>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Saint-Joseph" ;
-        db:name       "hôpital de Saint-Joseph" ;
-        db:picture    "" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_Saint-Joseph" , "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "-21.379829" ;
-        ns:longitude  "55.61889" .
-
 <http://www.wikidata.org/entity/Q1569396>
         db:Website    "" ;
         db:address    "" ;
@@ -1047,6 +1035,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "48.83517" ;
         ns:longitude  "2.24121" .
+
+<http://www.wikidata.org/entity/Q89587465>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Saint-Joseph" ;
+        db:name       "hôpital de Saint-Joseph" ;
+        db:picture    "" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_Saint-Joseph" , "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "-21.379829" ;
+        ns:longitude  "55.61889" .
 
 <http://www.wikidata.org/entity/Q22999214>
         db:Website    "" ;
@@ -1372,18 +1372,6 @@
         ns:latitude   "43.3158" ;
         ns:longitude  "1.9617" .
 
-<http://www.wikidata.org/entity/Q3145243>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "315" ;
-        db:city       "Paris" ;
-        db:name       "hôpital Vaugirard - Gabriel-Pallez" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Vaugirard%20Gabriel-Pallez.JPG" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_Vaugirard_-_Gabriel-Pallez" , "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.8345" ;
-        ns:longitude  "2.29402" .
-
 <http://www.wikidata.org/entity/Q3412178>
         db:Website    "" ;
         db:address    "" ;
@@ -1395,6 +1383,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "" ;
         ns:longitude  "" .
+
+<http://www.wikidata.org/entity/Q3145243>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "315" ;
+        db:city       "Paris" ;
+        db:name       "hôpital Vaugirard - Gabriel-Pallez" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Vaugirard%20Gabriel-Pallez.JPG" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_Vaugirard_-_Gabriel-Pallez" , "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.8345" ;
+        ns:longitude  "2.29402" .
 
 <http://www.wikidata.org/entity/Q30270161>
         db:Website    "" ;
@@ -2128,18 +2128,6 @@
         ns:latitude   "43.555464" ;
         ns:longitude  "1.431053" .
 
-<http://www.wikidata.org/entity/Q72694289>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Trévoux" ;
-        db:name       "hôpital Montpensier" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Montpensier.jpg" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "45.940717" ;
-        ns:longitude  "4.771488" .
-
 <http://www.wikidata.org/entity/Q96604821>
         db:Website    "" ;
         db:address    "3-5 allée des Platanes" ;
@@ -2151,6 +2139,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "48.864081454908" ;
         ns:longitude  "2.210998825263" .
+
+<http://www.wikidata.org/entity/Q72694289>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Trévoux" ;
+        db:name       "hôpital Montpensier" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Montpensier.jpg" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "45.940717" ;
+        ns:longitude  "4.771488" .
 
 <http://www.wikidata.org/entity/Q16508533>
         db:Website    "" ;
@@ -2188,18 +2188,6 @@
         ns:latitude   "48.3012" ;
         ns:longitude  "4.08205" .
 
-<http://www.wikidata.org/entity/Q97959036>
-        db:Website    "" ;
-        db:address    "55 Boulevard Maréchal Joffre" ;
-        db:bedCount   "1320" ;
-        db:city       "Seine-et-Marne" ;
-        db:name       "Centre hospitalier Sud Seine et Marne" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20de%20Fontainebleau%20DSC%200059.jpg" , "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20de%20Fontainebleau%20DSC%200050.jpg" , "http://commons.wikimedia.org/wiki/Special:FilePath/Centre%20hospitalier%20Sud%20Seine%20et%20Marne%20Nemours%20Campus.jpg" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/Centre_hospitalier_Sud_Seine_et_Marne" , "https://en.wikipedia.org/wiki/Centre_hospitalier_Sud_Seine_et_Marne" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.410785555556" ;
-        ns:longitude  "2.6968966666667" .
-
 <http://www.wikidata.org/entity/Q48748188>
         db:Website    "" ;
         db:address    "" ;
@@ -2211,6 +2199,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "" ;
         ns:longitude  "" .
+
+<http://www.wikidata.org/entity/Q97959036>
+        db:Website    "" ;
+        db:address    "55 Boulevard Maréchal Joffre" ;
+        db:bedCount   "1320" ;
+        db:city       "Seine-et-Marne" ;
+        db:name       "Centre hospitalier Sud Seine et Marne" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20de%20Fontainebleau%20DSC%200059.jpg" , "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20de%20Fontainebleau%20DSC%200050.jpg" , "http://commons.wikimedia.org/wiki/Special:FilePath/Centre%20hospitalier%20Sud%20Seine%20et%20Marne%20Nemours%20Campus.jpg" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/Centre_hospitalier_Sud_Seine_et_Marne" , "https://en.wikipedia.org/wiki/Centre_hospitalier_Sud_Seine_et_Marne" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.410785555556" ;
+        ns:longitude  "2.6968966666667" .
 
 <http://www.wikidata.org/entity/Q22919138>
         db:Website    "" ;
@@ -3076,18 +3076,6 @@
         ns:latitude   "45.9325" ;
         ns:longitude  "6.11728" .
 
-<http://www.wikidata.org/entity/Q96483635>
-        db:Website    "" ;
-        db:address    "place Robespierre" ;
-        db:bedCount   "" ;
-        db:city       "Limeil-Brévannes" ;
-        db:name       "hôpital des Enfants Convalescents" ;
-        db:picture    "" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.74839900771" ;
-        ns:longitude  "2.492618285901" .
-
 <http://www.wikidata.org/entity/Q3145157>
         db:Website    "" ;
         db:address    "" ;
@@ -3099,6 +3087,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "" ;
         ns:longitude  "" .
+
+<http://www.wikidata.org/entity/Q96483635>
+        db:Website    "" ;
+        db:address    "place Robespierre" ;
+        db:bedCount   "" ;
+        db:city       "Limeil-Brévannes" ;
+        db:name       "hôpital des Enfants Convalescents" ;
+        db:picture    "" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.74839900771" ;
+        ns:longitude  "2.492618285901" .
 
 <http://www.wikidata.org/entity/Q16627532>
         db:Website    "" ;
@@ -3820,18 +3820,6 @@
         ns:latitude   "" ;
         ns:longitude  "" .
 
-<http://www.wikidata.org/entity/Q3145133>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "426" ;
-        db:city       "Paris" ;
-        db:name       "Hôpital Armand-Trousseau" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Entr%C3%A9e%20h%C3%B4pital%20Trousseau.JPG" ;
-        mo:wikipedia  "" , "https://fr.wikipedia.org/wiki/H%C3%B4pital_Armand-Trousseau" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.8423" , "48.842798" ;
-        ns:longitude  "2.40576" , "2.405302" .
-
 <http://www.wikidata.org/entity/Q2945694>
         db:Website    "" ;
         db:address    "" ;
@@ -3843,6 +3831,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "" ;
         ns:longitude  "" .
+
+<http://www.wikidata.org/entity/Q3145133>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "426" ;
+        db:city       "Paris" ;
+        db:name       "Hôpital Armand-Trousseau" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Entr%C3%A9e%20h%C3%B4pital%20Trousseau.JPG" ;
+        mo:wikipedia  "" , "https://fr.wikipedia.org/wiki/H%C3%B4pital_Armand-Trousseau" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.8423" , "48.842798" ;
+        ns:longitude  "2.40576" , "2.405302" .
 
 <http://www.wikidata.org/entity/Q22999559>
         db:Website    "" ;
@@ -4060,17 +4060,17 @@
         ns:latitude   "44.4334" ;
         ns:longitude  "-0.208791" .
 
-<http://www.wikidata.org/entity/Q87823118>
+<http://www.wikidata.org/entity/Q3145280>
         db:Website    "" ;
-        db:address    "17 rue Madeleine Brès" ;
-        db:bedCount   "30" ;
-        db:city       "Limoux" ;
-        db:name       "Centre hospitalier de Limoux" ;
-        db:picture    "" ;
-        mo:wikipedia  "" ;
+        db:address    "rue du Pont-Saint-Pierre" ;
+        db:bedCount   "" ;
+        db:city       "Toulouse" ;
+        db:name       "hôpital de La Grave" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Toulouse%20hopital%20st%20Joseph.jpg" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_La_Grave" , "https://en.wikipedia.org/wiki/H%C3%B4pital_de_La_Grave" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "43.055555555556" ;
-        ns:longitude  "2.2194722222222" .
+        ns:latitude   "43.6" ;
+        ns:longitude  "1.432" .
 
 <http://www.wikidata.org/entity/Q18745238>
         db:Website    "" ;
@@ -4108,17 +4108,17 @@
         ns:latitude   "48.821917" ;
         ns:longitude  "2.42646" .
 
-<http://www.wikidata.org/entity/Q3145280>
+<http://www.wikidata.org/entity/Q87823118>
         db:Website    "" ;
-        db:address    "rue du Pont-Saint-Pierre" ;
-        db:bedCount   "" ;
-        db:city       "Toulouse" ;
-        db:name       "hôpital de La Grave" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Toulouse%20hopital%20st%20Joseph.jpg" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_La_Grave" , "https://en.wikipedia.org/wiki/H%C3%B4pital_de_La_Grave" ;
+        db:address    "17 rue Madeleine Brès" ;
+        db:bedCount   "30" ;
+        db:city       "Limoux" ;
+        db:name       "Centre hospitalier de Limoux" ;
+        db:picture    "" ;
+        mo:wikipedia  "" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "43.6" ;
-        ns:longitude  "1.432" .
+        ns:latitude   "43.055555555556" ;
+        ns:longitude  "2.2194722222222" .
 
 <http://www.wikidata.org/entity/Q3145202>
         db:Website    "" ;
@@ -4228,18 +4228,6 @@
         ns:latitude   "47.293464" ;
         ns:longitude  "-2.513503" .
 
-<http://www.wikidata.org/entity/Q21788011>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Rennes" ;
-        db:name       "hospice Saint-Melaine" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Rennes%20Abbaye%20Saint-Melaine%20cloitre%2006.jpg" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.114722222222" ;
-        ns:longitude  "-1.6730555555556" .
-
 <http://www.wikidata.org/entity/Q54556537>
         db:Website    "" ;
         db:address    "31, quai Vauban" , "3 5 rue Claude-Goudimel" ;
@@ -4251,6 +4239,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "47.2406" ;
         ns:longitude  "6.02318" .
+
+<http://www.wikidata.org/entity/Q21788011>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Rennes" ;
+        db:name       "hospice Saint-Melaine" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Rennes%20Abbaye%20Saint-Melaine%20cloitre%2006.jpg" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.114722222222" ;
+        ns:longitude  "-1.6730555555556" .
 
 <http://www.wikidata.org/entity/Q17347067>
         db:Website    "" ;
@@ -4948,17 +4948,17 @@
         ns:latitude   "46.9761" ;
         ns:longitude  "4.78636" .
 
-<http://www.wikidata.org/entity/Q92309988>
+<http://www.wikidata.org/entity/Q53582086>
         db:Website    "" ;
         db:address    "" ;
         db:bedCount   "" ;
-        db:city       "Cuisery" ;
-        db:name       "hôpital de Cuisery" ;
+        db:city       "Forbach" ;
+        db:name       "Hôpital Ste-Barbe de Forbach" ;
         db:picture    "" ;
         mo:wikipedia  "" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "46.557989817024" ;
-        ns:longitude  "5.002401614497" .
+        ns:latitude   "" ;
+        ns:longitude  "" .
 
 <http://www.wikidata.org/entity/Q19951416>
         db:Website    "" ;
@@ -4996,17 +4996,17 @@
         ns:latitude   "47.3868" ;
         ns:longitude  "0.66783" .
 
-<http://www.wikidata.org/entity/Q53582086>
+<http://www.wikidata.org/entity/Q92309988>
         db:Website    "" ;
         db:address    "" ;
         db:bedCount   "" ;
-        db:city       "Forbach" ;
-        db:name       "Hôpital Ste-Barbe de Forbach" ;
+        db:city       "Cuisery" ;
+        db:name       "hôpital de Cuisery" ;
         db:picture    "" ;
         mo:wikipedia  "" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "" ;
-        ns:longitude  "" .
+        ns:latitude   "46.557989817024" ;
+        ns:longitude  "5.002401614497" .
 
 <http://www.wikidata.org/entity/Q3145210>
         db:Website    "" ;
@@ -5716,17 +5716,17 @@
         ns:latitude   "49.57033" ;
         ns:longitude  "3.602424" .
 
-<http://www.wikidata.org/entity/Q3145204>
+<http://www.wikidata.org/entity/Q2945765>
         db:Website    "" ;
         db:address    "" ;
-        db:bedCount   "500" ;
-        db:city       "Paris" ;
-        db:name       "hôpital Robert-Debré" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20Robert%20Debre.JPG" ;
-        mo:wikipedia  "" , "https://fr.wikipedia.org/wiki/H%C3%B4pital_Robert-Debr%C3%A9" ;
+        db:bedCount   "" ;
+        db:city       "Saint-Denis" ;
+        db:name       "centre hospitalier universitaire de La Réunion" ;
+        db:picture    "" ;
+        mo:wikipedia  "" , "https://fr.wikipedia.org/wiki/Centre_hospitalier_universitaire_de_La_R%C3%A9union" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "48.8794" ;
-        ns:longitude  "2.40278" .
+        ns:latitude   "" ;
+        ns:longitude  "" .
 
 <http://www.wikidata.org/entity/Q3345109>
         db:Website    "" ;
@@ -5740,17 +5740,17 @@
         ns:latitude   "48.5752" ;
         ns:longitude  "7.74104" .
 
-<http://www.wikidata.org/entity/Q2945765>
+<http://www.wikidata.org/entity/Q3145204>
         db:Website    "" ;
         db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Saint-Denis" ;
-        db:name       "centre hospitalier universitaire de La Réunion" ;
-        db:picture    "" ;
-        mo:wikipedia  "" , "https://fr.wikipedia.org/wiki/Centre_hospitalier_universitaire_de_La_R%C3%A9union" ;
+        db:bedCount   "500" ;
+        db:city       "Paris" ;
+        db:name       "hôpital Robert-Debré" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20Robert%20Debre.JPG" ;
+        mo:wikipedia  "" , "https://fr.wikipedia.org/wiki/H%C3%B4pital_Robert-Debr%C3%A9" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "" ;
-        ns:longitude  "" .
+        ns:latitude   "48.8794" ;
+        ns:longitude  "2.40278" .
 
 <http://www.wikidata.org/entity/Q30018009>
         db:Website    "" ;
@@ -6088,18 +6088,6 @@
         ns:latitude   "48.2309" ;
         ns:longitude  "7.14346" .
 
-<http://www.wikidata.org/entity/Q65130359>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Essonne" ;
-        db:name       "Hôpital de Perray-Vaucluse" ;
-        db:picture    "" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/Centre_hospitalier_de_Perray-Vaucluse" , "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "48.660435" ;
-        ns:longitude  "2.309226" .
-
 <http://www.wikidata.org/entity/Q22936375>
         db:Website    "" ;
         db:address    "route du Puy-Mary" ;
@@ -6111,6 +6099,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "45.139275" ;
         ns:longitude  "2.497467" .
+
+<http://www.wikidata.org/entity/Q65130359>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Essonne" ;
+        db:name       "Hôpital de Perray-Vaucluse" ;
+        db:picture    "" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/Centre_hospitalier_de_Perray-Vaucluse" , "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "48.660435" ;
+        ns:longitude  "2.309226" .
 
 <http://www.wikidata.org/entity/Q51730373>
         db:Website    "" ;
@@ -6160,18 +6160,6 @@
         ns:latitude   "48.925603" ;
         ns:longitude  "2.442888" .
 
-<http://www.wikidata.org/entity/Q92311489>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Le Creusot" ;
-        db:name       "hôtel-Dieu du Creusot" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Le%20Creusot%20-%20Hotel%20Dieu%201%20%2804%29.jpg" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "46.80395" ;
-        ns:longitude  "4.448481" .
-
 <http://www.wikidata.org/entity/Q3278669>
         db:Website    "" ;
         db:address    "" ;
@@ -6183,6 +6171,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "48.84416667" ;
         ns:longitude  "2.39694444" .
+
+<http://www.wikidata.org/entity/Q92311489>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Le Creusot" ;
+        db:name       "hôtel-Dieu du Creusot" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Le%20Creusot%20-%20Hotel%20Dieu%201%20%2804%29.jpg" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "46.80395" ;
+        ns:longitude  "4.448481" .
 
 <http://www.wikidata.org/entity/Q2945746>
         db:Website    "" ;
@@ -6556,6 +6556,18 @@
         ns:latitude   "47.215599" ;
         ns:longitude  "5.97947" .
 
+<http://www.wikidata.org/entity/Q30739659>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Paris" ;
+        db:name       "Hôpital de jour Santos-Dumont" ;
+        db:picture    "" ;
+        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_jour_Santos-Dumont" , "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "" ;
+        ns:longitude  "" .
+
 <http://www.wikidata.org/entity/Q1643033>
         db:Website    "" ;
         db:address    "" ;
@@ -6567,18 +6579,6 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "48.88166667" ;
         ns:longitude  "2.36" .
-
-<http://www.wikidata.org/entity/Q50036535>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Grenoble" ;
-        db:name       "Centre d'Investigation Clinique - Innovation Technologique" ;
-        db:picture    "" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "45.197724" ;
-        ns:longitude  "5.747747" .
 
 <http://www.wikidata.org/entity/Q3145156>
         db:Website    "" ;
@@ -6592,17 +6592,17 @@
         ns:latitude   "-22.26722" ;
         ns:longitude  "166.439583" .
 
-<http://www.wikidata.org/entity/Q30739659>
+<http://www.wikidata.org/entity/Q50036535>
         db:Website    "" ;
         db:address    "" ;
         db:bedCount   "" ;
-        db:city       "Paris" ;
-        db:name       "Hôpital de jour Santos-Dumont" ;
+        db:city       "Grenoble" ;
+        db:name       "Centre d'Investigation Clinique - Innovation Technologique" ;
         db:picture    "" ;
-        mo:wikipedia  "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_jour_Santos-Dumont" , "" ;
+        mo:wikipedia  "" ;
         rdf:type      wd:Q16917 ;
-        ns:latitude   "" ;
-        ns:longitude  "" .
+        ns:latitude   "45.197724" ;
+        ns:longitude  "5.747747" .
 
 <http://www.wikidata.org/entity/Q3117859>
         db:Website    "" ;
@@ -7084,18 +7084,6 @@
         ns:latitude   "44.75021" ;
         ns:longitude  "1.79657" .
 
-<http://www.wikidata.org/entity/Q87866196>
-        db:Website    "" ;
-        db:address    "Rue du Dr Roueylou" ;
-        db:bedCount   "12" ;
-        db:city       "Quillan" ;
-        db:name       "Centre hospitalier de Quillan" ;
-        db:picture    "" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "42.881583333333" ;
-        ns:longitude  "2.1848333333333" .
-
 <http://www.wikidata.org/entity/Q22963945>
         db:Website    "" ;
         db:address    "place Jean-de-Vienne" ;
@@ -7107,6 +7095,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "49.4244" ;
         ns:longitude  "0.2282" .
+
+<http://www.wikidata.org/entity/Q87866196>
+        db:Website    "" ;
+        db:address    "Rue du Dr Roueylou" ;
+        db:bedCount   "12" ;
+        db:city       "Quillan" ;
+        db:name       "Centre hospitalier de Quillan" ;
+        db:picture    "" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "42.881583333333" ;
+        ns:longitude  "2.1848333333333" .
 
 <http://www.wikidata.org/entity/Q22939546>
         db:Website    "" ;
@@ -7588,18 +7588,6 @@
         ns:latitude   "50.5022" ;
         ns:longitude  "2.47558" .
 
-<http://www.wikidata.org/entity/Q90334744>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Montrevel-en-Bresse" ;
-        db:name       "hôpital de Montrevel-en-Bresse" ;
-        db:picture    "" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "46.3401" ;
-        ns:longitude  "5.12695" .
-
 <http://www.wikidata.org/entity/Q92310070>
         db:Website    "" ;
         db:address    "" ;
@@ -7611,6 +7599,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "46.618207" ;
         ns:longitude  "3.765406" .
+
+<http://www.wikidata.org/entity/Q90334744>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Montrevel-en-Bresse" ;
+        db:name       "hôpital de Montrevel-en-Bresse" ;
+        db:picture    "" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "46.3401" ;
+        ns:longitude  "5.12695" .
 
 <http://www.wikidata.org/entity/Q30279960>
         db:Website    "" ;
@@ -7852,18 +7852,6 @@
         ns:latitude   "48.73592" ;
         ns:longitude  "1.36627" .
 
-<http://www.wikidata.org/entity/Q22953053>
-        db:Website    "" ;
-        db:address    "" ;
-        db:bedCount   "" ;
-        db:city       "Dole" ;
-        db:name       "hôpital de la Charité" ;
-        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Dole%20-%20Hopital%20general%20de%20la%20charit%C3%A9.jpg" ;
-        mo:wikipedia  "" ;
-        rdf:type      wd:Q16917 ;
-        ns:latitude   "47.090195" ;
-        ns:longitude  "5.494612" .
-
 <http://www.wikidata.org/entity/Q64555579>
         db:Website    "" ;
         db:address    "" ;
@@ -7875,6 +7863,18 @@
         rdf:type      wd:Q16917 ;
         ns:latitude   "" ;
         ns:longitude  "" .
+
+<http://www.wikidata.org/entity/Q22953053>
+        db:Website    "" ;
+        db:address    "" ;
+        db:bedCount   "" ;
+        db:city       "Dole" ;
+        db:name       "hôpital de la Charité" ;
+        db:picture    "http://commons.wikimedia.org/wiki/Special:FilePath/Dole%20-%20Hopital%20general%20de%20la%20charit%C3%A9.jpg" ;
+        mo:wikipedia  "" ;
+        rdf:type      wd:Q16917 ;
+        ns:latitude   "47.090195" ;
+        ns:longitude  "5.494612" .
 
 <http://www.wikidata.org/entity/Q95129201>
         db:Website    "" ;
