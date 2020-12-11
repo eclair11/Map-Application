@@ -11,13 +11,15 @@ import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Person;
 import com.semweb.map.model.Reponse;
 import com.semweb.map.model.ReponseVille;
+import com.semweb.map.model.SparqlHospitalRequestLDModel;
 import com.semweb.map.model.SparqlHospitalRequestModel;
 import com.semweb.map.model.SparqlTownRequestModel;
+import com.semweb.map.model.TestLD;
+import com.semweb.map.model.SparqlHospitalRequestLDModel.HospitalLD;
 import com.semweb.map.utils.OutilCalcul;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -25,6 +27,7 @@ public class IndexController {
 
     Reponse reponse = new Reponse();
     ReponseVille ReponseVille = new ReponseVille("");
+    
 
     @RequestMapping("/")
     public String index(Model model, Reponse reponse, ReponseVille reponseVille) throws JsonParseException, JsonMappingException, IOException {
@@ -63,6 +66,16 @@ public class IndexController {
 
         System.out.println(townList);
         System.out.println(reponseVille.getName());
+
+
+        /* Parsing d'un JSon-ld de la liste des hopitaux pour une ville donnée*/
+
+        ObjectMapper objectMapper4 = new ObjectMapper();
+        SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDModel.class);
+        for (HospitalLD hos : testLD.getGraph()) {
+            System.out.println(hos);
+        }
+
 
         /* Ajout d'une liste de coordonnees pour afficher des pointeurs */
 
