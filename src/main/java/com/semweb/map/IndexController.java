@@ -3,6 +3,7 @@ package com.semweb.map;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -72,20 +73,39 @@ public class IndexController {
 
         ObjectMapper objectMapper4 = new ObjectMapper();
         SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDModel.class);
+        
+        ArrayList<HospitalLD> hospitals = new ArrayList<>();
+
         for (HospitalLD hos : testLD.getGraph()) {
+            hospitals.add(hos);
+        }
+        
+        for (HospitalLD hos : hospitals) {
             System.out.println(hos);
         }
+
+        hospitals.sort(Comparator.comparing(HospitalLD::getName, String.CASE_INSENSITIVE_ORDER));
+
+        model.addAttribute("hospitals", hospitals);
 
 
         /* Ajout d'une liste de coordonnees pour afficher des pointeurs */
 
         ArrayList<Coordinate> coordList = new ArrayList<>();
 
+        /*
         coordList.add(new Coordinate(45.447102, 4.386077));
         coordList.add(new Coordinate(45.448178, 4.386066));
         coordList.add(new Coordinate(45.448758, 4.384296));
         coordList.add(new Coordinate(45.446974, 4.384382));
         coordList.add(new Coordinate(45.448486, 4.385906));
+        */
+
+        for (HospitalLD hos : hospitals) {
+            if(!hos.getLatitude().isEmpty() || !hos.getLongitude().isEmpty()){
+                coordList.add(new Coordinate(Double.parseDouble(hos.getLatitude()), Double.parseDouble(hos.getLongitude())));
+            }
+        }
 
         Coordinate[] coords = { new Coordinate(45.447102, 4.386077) };
 
