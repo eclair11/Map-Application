@@ -75,30 +75,34 @@ public class IndexController {
 
         /* Parsing d'un JSon-ld de la liste des hopitaux pour une ville donnée*/
 
-<<<<<<< HEAD
         /*
         ObjectMapper objectMapper4 = new ObjectMapper();
         SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(new File("requestHospitalsMulti.txt"), SparqlHospitalRequestLDModel.class);
         */
 
-        ObjectMapper objectMapper4 = new ObjectMapper();
-        SparqlHospitalRequestLDUniqueModel testLD = objectMapper4.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDUniqueModel.class);
-=======
+        
+
         String ville = "Paris";
         if (reponseVille.getName() != null) {
             ville = reponseVille.getName();
         }
         String h = Request.getHospitalsByCity(ville);
 
+        /** ELIAS, c'est là où j'ai besoin du nb de réponse pour faire 
+         *      une conditionnelle et appeller la bonne classe pour le parseur */
+
         ObjectMapper objectMapper4 = new ObjectMapper();
         SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(h, SparqlHospitalRequestLDModel.class);
->>>>>>> a19d8f4a401625b4576b628fbf33eef29f077a2a
         
         ArrayList<HospitalLD> hospitals = new ArrayList<>();
 
-        HospitalLD uniqueHospital = fillHospitalUnique(testLD);
+        ObjectMapper objectMapper5 = new ObjectMapper();
+        SparqlHospitalRequestLDUniqueModel requestHospitalUnique = objectMapper5.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDUniqueModel.class);
+
+        HospitalLD uniqueHospital = fillHospitalUnique(requestHospitalUnique);
         hospitals.add(uniqueHospital);
 
+        /**  ATTENTION, NE PAS EFFACER */
         /* 
         for (HospitalLD hos : testLD.getGraph()) {
             hospitals.add(hos);
