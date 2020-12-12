@@ -13,6 +13,7 @@ import com.semweb.map.model.Person;
 import com.semweb.map.model.Reponse;
 import com.semweb.map.model.ReponseVille;
 import com.semweb.map.model.SparqlHospitalRequestLDModel;
+import com.semweb.map.model.SparqlHospitalRequestLDUniqueModel;
 import com.semweb.map.model.SparqlHospitalRequestModel;
 import com.semweb.map.model.SparqlTownRequestModel;
 import com.semweb.map.model.TestLD;
@@ -27,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
     Reponse reponse = new Reponse();
-    ReponseVille ReponseVille = new ReponseVille("");
+    ReponseVille ReponseVille = new ReponseVille("Paris");
     
 
     @RequestMapping("/")
@@ -71,18 +72,30 @@ public class IndexController {
 
         /* Parsing d'un JSon-ld de la liste des hopitaux pour une ville donnée*/
 
+        /*
         ObjectMapper objectMapper4 = new ObjectMapper();
-        SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDModel.class);
+        SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(new File("requestHospitalsMulti.txt"), SparqlHospitalRequestLDModel.class);
+        */
+
+        ObjectMapper objectMapper4 = new ObjectMapper();
+        SparqlHospitalRequestLDUniqueModel testLD = objectMapper4.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDUniqueModel.class);
         
         ArrayList<HospitalLD> hospitals = new ArrayList<>();
 
+        HospitalLD uniqueHospital = fillHospitalUnique(testLD);
+        hospitals.add(uniqueHospital);
+
+        /* 
         for (HospitalLD hos : testLD.getGraph()) {
             hospitals.add(hos);
         }
+        */
         
+        /*
         for (HospitalLD hos : hospitals) {
             System.out.println(hos);
         }
+        */
 
         hospitals.sort(Comparator.comparing(HospitalLD::getName, String.CASE_INSENSITIVE_ORDER));
 
@@ -129,6 +142,24 @@ public class IndexController {
         System.out.println("lon = " + testCoord.getLat() + " / lat = " + testCoord.getLon());
 
         return "index";
+    }
+
+    private HospitalLD fillHospitalUnique(SparqlHospitalRequestLDUniqueModel uniqueHospital){
+
+        HospitalLD hospital = new HospitalLD(
+            uniqueHospital.getId(), 
+            uniqueHospital.getWebsite(), 
+            uniqueHospital.getAddress(), 
+            uniqueHospital.getBedCount(), 
+            uniqueHospital.getName(), 
+            uniqueHospital.getPicture(), 
+            uniqueHospital.getWikipedia(), 
+            uniqueHospital.getWikipediaArticle(), 
+            uniqueHospital.getLatitude(), 
+            uniqueHospital.getLongitude()
+            );
+
+        return hospital;
     }
 
 

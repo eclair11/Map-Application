@@ -5,192 +5,174 @@ import java.util.Arrays;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SparqlHospitalRequestLDModel {
+/**
+ * Specialized version of the class in case 
+ *      the 'getHospitalByCity()' method returns only one result.
+ */
+public class SparqlHospitalRequestLDUniqueModel {
 
-    /************/
-    /** Graph **/
-    /***********/
+    /****************************************/
+    /** SparqlHospitalRequestLDUniqueModel **/
+    /****************************************/
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonProperty("@graph")
-    private HospitalLD[] graph;
+    @JsonProperty("@id")
+    private String id;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("Website")
+    private String website;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("address")
+    private String address;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("bedCount")
+    private String bedCount;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("name")
+    private String name;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("picture")
+    private String picture;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("wikipedia")
+    private String wikipedia;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("wikipediaArticle")
+    private String wikipediaArticle;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("latitude")
+    private String latitude;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("longitude")
+    private String longitude;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("@context")
     private Context context;
 
-    public SparqlHospitalRequestLDModel() {
+    public SparqlHospitalRequestLDUniqueModel() {
 
     }
 
-    public SparqlHospitalRequestLDModel(HospitalLD[] graph) {
-        this.graph = graph;
+    public SparqlHospitalRequestLDUniqueModel(String id, String website, String address, String bedCount, String name,
+            String picture, String wikipedia, String wikipediaArticle, String latitude, String longitude,
+            Context context) {
+        this.id = id;
+        this.website = website;
+        this.address = address;
+        this.bedCount = bedCount;
+        this.name = name;
+        this.picture = picture;
+        this.wikipedia = wikipedia;
+        this.wikipediaArticle = wikipediaArticle;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.context = context;
     }
 
-    public HospitalLD[] getGraph() {
-        return graph;
+    public String getId() {
+        return id;
     }
 
-    public void setGraph(HospitalLD[] graph) {
-        this.graph = graph;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getBedCount() {
+        return bedCount;
+    }
+
+    public void setBedCount(String bedCount) {
+        this.bedCount = bedCount;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
+
+    public String getWikipedia() {
+        return wikipedia;
+    }
+
+    public void setWikipedia(String wikipedia) {
+        this.wikipedia = wikipedia;
+    }
+
+    public String getWikipediaArticle() {
+        return wikipediaArticle;
+    }
+
+    public void setWikipediaArticle(String wikipediaArticle) {
+        this.wikipediaArticle = wikipediaArticle;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     @Override
     public String toString() {
-        return "SparqlHospitalRequestLDModel [graph=" + Arrays.toString(graph) + "]";
-    }
-
-    /**************/
-    /** Hospital **/
-    /**************/
-
-    public static class HospitalLD {
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("@id")
-        private String id;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("Website")
-        private String website;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("address")
-        private String address;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("bedCount")
-        private String bedCount;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("name")
-        private String name;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("picture")
-        private String picture;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("wikipedia")
-        private String wikipedia;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("wikipediaArticle")
-        private String wikipediaArticle;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("latitude")
-        private String latitude;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("longitude")
-        private String longitude;
-
-        public HospitalLD() {
-
-        }
-
-        public HospitalLD(String id, String website, String address, String bedCount, String name, String picture,
-                String wikipedia, String wikipediaArticle, String latitude, String longitude) {
-            this.id = id;
-            this.website = website;
-            this.address = address;
-            this.bedCount = bedCount;
-            this.name = name;
-            this.picture = picture;
-            this.wikipedia = wikipedia;
-            this.wikipediaArticle = wikipediaArticle;
-            this.latitude = latitude;
-            this.longitude = longitude;
-        }
-
-        public String getId() {
-            return id;
-        }
-
-        public void setId(String id) {
-            this.id = id;
-        }
-
-        public String getWebsite() {
-            return website;
-        }
-
-        public void setWebsite(String website) {
-            this.website = website;
-        }
-
-        public String getAddress() {
-            return address;
-        }
-
-        public void setAddress(String address) {
-            this.address = address;
-        }
-
-        public String getBedCount() {
-            return bedCount;
-        }
-
-        public void setBedCount(String bedCount) {
-            this.bedCount = bedCount;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getPicture() {
-            return picture;
-        }
-
-        public void setPicture(String picture) {
-            this.picture = picture;
-        }
-
-        public String getWikipedia() {
-            return wikipedia;
-        }
-
-        public void setWikipedia(String wikipedia) {
-            this.wikipedia = wikipedia;
-        }
-
-        public String getWikipediaArticle() {
-            return wikipediaArticle;
-        }
-
-        public void setWikipediaArticle(String wikipediaArticle) {
-            this.wikipediaArticle = wikipediaArticle;
-        }
-
-        public String getLatitude() {
-            return latitude;
-        }
-
-        public void setLatitude(String latitude) {
-            this.latitude = latitude;
-        }
-
-        public String getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(String longitude) {
-            this.longitude = longitude;
-        }
-
-        @Override
-        public String toString() {
-            return "HospitalLD [address=" + address + ", bedCount=" + bedCount + ", id=" + id + ", latitude=" + latitude
-                    + ", longitude=" + longitude + ", name=" + name + ", picture=" + picture + ", website=" + website
-                    + ", wikipedia=" + wikipedia + ", wikipediaArticle=" + wikipediaArticle + "]";
-        }
-
+        return "SparqlHospitalRequestLDUniqueModel [address=" + address + ", bedCount=" + bedCount + ", context="
+                + context + ", id=" + id + ", latitude=" + latitude + ", longitude=" + longitude + ", name=" + name
+                + ", picture=" + picture + ", website=" + website + ", wikipedia=" + wikipedia + ", wikipediaArticle="
+                + wikipediaArticle + "]";
     }
 
     /*************/

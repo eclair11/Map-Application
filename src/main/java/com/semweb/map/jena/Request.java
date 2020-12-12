@@ -57,6 +57,7 @@ public class Request {
         Query query = QueryFactory.create(request, Syntax.syntaxARQ);
         QueryExecution exec = QueryExecutionFactory.sparqlService(endpoint, query);
         Model model = exec.execConstruct();
+        model.size();
         try {
             FileWriter writer = new FileWriter("./requestHospitals.txt");
             model.write(writer, "JSONLD");

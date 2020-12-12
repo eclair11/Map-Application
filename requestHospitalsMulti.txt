@@ -1,0 +1,456 @@
+{
+  "@graph" : [ {
+    "@id" : "http://www.wikidata.org/entity/Q1294736",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "329",
+    "name" : "Hôtel-Dieu de Paris",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4tel-Dieu%20from%20Tour%20Saint-Jacques.jpg",
+    "wikipedia" : "https://en.wikipedia.org/wiki/H%C3%B4tel-Dieu,_Paris",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4tel-Dieu_de_Paris",
+    "latitude" : "48.85463889",
+    "longitude" : "2.34880556"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q1460618",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital des Quinze-Vingts",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/2003.11.27%20Photo02%20043%20Paris%20XII%20Hopital%20des%20Quinze-Vingt%20reductwk.jpg",
+    "wikipedia" : "https://en.wikipedia.org/wiki/Quinze-Vingts_National_Ophthalmology_Hospital",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_des_Quinze-Vingts",
+    "latitude" : "48.835621",
+    "longitude" : "2.394399"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q15989047",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "150",
+    "name" : "hôpital des diaconesses de Reuilly",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_des_Diaconesses_de_Reuilly",
+    "latitude" : "48.846305",
+    "longitude" : "2.393882"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q16023733",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "300",
+    "name" : "Groupe Hospitalier Diaconesses Croix Saint-Simon",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Groupe_hospitalier_Diaconesses_Croix_Saint-Simon",
+    "latitude" : "48.8547",
+    "longitude" : "2.40873"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q1643033",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital Fernand-Widal",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Fernand-Widal%2C%20fa%C3%A7ade%2001.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Fernand-Widal",
+    "latitude" : "48.88166667",
+    "longitude" : "2.36"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q1643036",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "310",
+    "name" : "hôpital Rothschild",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/P1010007%20Paris%20XII%20Hopital%20Rothschild%20reductwk.JPG",
+    "wikipedia" : "https://en.wikipedia.org/wiki/Rothschild_Hospital,_Paris",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Rothschild",
+    "latitude" : "48.84346389",
+    "longitude" : "2.40111389"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q1643043",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital de la Charité",
+    "picture" : "",
+    "wikipedia" : "https://en.wikipedia.org/wiki/H%C3%B4pital_de_la_Charit%C3%A9",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_la_Charit%C3%A9_de_Paris",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q1643047",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital général de Paris",
+    "picture" : "",
+    "wikipedia" : "https://en.wikipedia.org/wiki/General_Hospital_of_Paris",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_g%C3%A9n%C3%A9ral_de_Paris",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q22814396",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "caserne Monge",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Caserne_Monge",
+    "latitude" : "48.842841",
+    "longitude" : "2.350459"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q24938397",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hospice Devillas",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Hospice_Devillas",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q2945718",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "centre hospitalier intercommunal Le Raincy-Montfermeil",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Groupe_hospitalier_intercommunal_Le_Raincy-Montfermeil",
+    "latitude" : "48.899149",
+    "longitude" : "2.571889"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q2945875",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hôpital Marmottan",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Marmottan.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Marmottan",
+    "latitude" : "48.878101",
+    "longitude" : "2.291547"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q2986102",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Comme à la maison",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Comme_%C3%A0_la_maison_(association)",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q30273708",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Institution Nationale des Invalides",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "",
+    "latitude" : "48.8548037",
+    "longitude" : "2.3142583"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q30739659",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hôpital de jour Santos-Dumont",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_jour_Santos-Dumont",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3075356",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "160",
+    "name" : "Fondation Adolphe de Rothschild",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Paris%2075019%20Rue%20Manin%2020160312%20Fondation%20Rothschild.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Fondation_Adolphe_de_Rothschild",
+    "latitude" : "48.8787",
+    "longitude" : "2.37828"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3117860",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Groupe hospitalier de la Pitié-Salpêtrière - Charles Foix",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/P1000526%20Paris%20XIII%20Hopital%20Piti%C3%A9-Salp%C3%A9tri%C3%A8re%20reductwk.JPG",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Groupe_hospitalier_de_la_Piti%C3%A9-Salp%C3%AAtri%C3%A8re_-_Charles-Foix",
+    "latitude" : "48.8378",
+    "longitude" : "2.365"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145133",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "426",
+    "name" : "Hôpital Armand-Trousseau",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Entr%C3%A9e%20h%C3%B4pital%20Trousseau.JPG",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Armand-Trousseau",
+    "latitude" : "48.8423",
+    "longitude" : "2.40576"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145138",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "670",
+    "name" : "hôpital Bichat-Claude-Bernard",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Paris%2018e%20H%C3%B4pital%20Bichat.JPG",
+    "wikipedia" : "https://en.wikipedia.org/wiki/Bichat%E2%80%93Claude_Bernard_Hospital",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Bichat-Claude-Bernard",
+    "latitude" : "48.898888888",
+    "longitude" : "2.331944444"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145139",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital Boucicaut",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/P1080047%20Paris%20XV%20rue%20Lacordaire%20hopital%20Boucicaut%20rwk.JPG",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Boucicaut",
+    "latitude" : "48.8424",
+    "longitude" : "2.2843"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145140",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "205",
+    "name" : "hôpital Bretonneau",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Bretonneau%20entr%C3%A9e.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Bretonneau",
+    "latitude" : "48.89",
+    "longitude" : "2.33061"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145143",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "433",
+    "name" : "hôpital Broca",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Broca.JPG",
+    "wikipedia" : "https://en.wikipedia.org/wiki/H%C3%B4pital_Broca",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Broca",
+    "latitude" : "48.8344",
+    "longitude" : "2.3469"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145190",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital Notre-Dame-de-Bon-Secours",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Maternit%C3%A9%20Notre-Dame%20de%20Bon%20Secours.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Maternit%C3%A9_Notre-Dame_de_Bon_Secours_(Paris)",
+    "latitude" : "48.8264",
+    "longitude" : "2.31985"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145196",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital Pierre Rouquès-Les bluets",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Pierre_Rouqu%C3%A8s_-_Les_Bluets",
+    "latitude" : "48.8429666",
+    "longitude" : "2.4063492"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145204",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "500",
+    "name" : "hôpital Robert-Debré",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Hopital%20Robert%20Debre.JPG",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Robert-Debr%C3%A9",
+    "latitude" : "48.8794",
+    "longitude" : "2.40278"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145223",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hôpital Saint-Vincent-de-Paul",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/P1010429%20Paris%20XIV%20H%C3%B4pital%20Saint-Vincent-de-Paul%20Chapelle%20reductwk.JPG",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Saint-Vincent-de-Paul",
+    "latitude" : "48.8378",
+    "longitude" : "2.33361"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145225",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "598",
+    "name" : "Hôpital Sainte-Périne - Rossini - Chardon-Lagache",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Fondation%20Rossini%2C%2035%20rue%20Mirabeau%2C%20Paris%2016e.jpg",
+    "wikipedia" : "https://en.wikipedia.org/wiki/Sainte-P%C3%A9rine_-_Rossini_-_Chardon-Lagache_Hospital",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Sainte-P%C3%A9rine_-_Rossini_-_Chardon-Lagache",
+    "latitude" : "48.8447",
+    "longitude" : "2.26698"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145243",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "315",
+    "name" : "hôpital Vaugirard - Gabriel-Pallez",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Vaugirard%20Gabriel-Pallez.JPG",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Vaugirard_-_Gabriel-Pallez",
+    "latitude" : "48.8345",
+    "longitude" : "2.29402"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145306",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "560",
+    "name" : "hôpital de la Collégiale",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_la_Coll%C3%A9giale",
+    "latitude" : "48.8389",
+    "longitude" : "2.35235"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3145336",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "1160",
+    "name" : "hôpital européen Georges-Pompidou",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20europ%C3%A9en%20Georges-Pompidou%20logo.JPG",
+    "wikipedia" : "https://en.wikipedia.org/wiki/H%C3%B4pital_Europ%C3%A9en_Georges-Pompidou",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_europ%C3%A9en_Georges-Pompidou",
+    "latitude" : "48.8389",
+    "longitude" : "2.2737"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3150756",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Infirmerie psychiatrique de la préfecture de police",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Infirmerie_psychiatrique_de_la_pr%C3%A9fecture_de_police",
+    "latitude" : "48.830182",
+    "longitude" : "2.33924"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3152361",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Institut mutualiste Montsouris",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Institut_mutualiste_Montsouris",
+    "latitude" : "48.8226",
+    "longitude" : "2.33285"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3278669",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "maison Coignard",
+    "picture" : "",
+    "wikipedia" : "https://en.wikipedia.org/wiki/Maison_Coignard",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Maison_Coignard",
+    "latitude" : "48.84416667",
+    "longitude" : "2.39694444"
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q3377449",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Petites Maisons",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Gravure%20plan%20Petites%20Maisons%20c.1785.png",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Petites_Maisons",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q48748188",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hôpital Andral",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_Andral",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q48749726",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hôpital du gouvernement italien",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_du_gouvernement_italien",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q56293751",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Hôpital militaire du Gros-Caillou",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "",
+    "latitude" : "",
+    "longitude" : ""
+  }, {
+    "@id" : "http://www.wikidata.org/entity/Q856882",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "Bicêtre",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4pital%20Royal%20de%20Bic%C3%AAtre%2C%20Paris%3B%20panoramic%20view%20with%20gardens%20Wellcome%20V0014292.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Bic%C3%AAtre",
+    "latitude" : "48.809517",
+    "longitude" : "2.355114"
+  } ],
+  "@context" : {
+    "longitude" : {
+      "@id" : "https://www.w3.org/2006/vcard/ns#longitude"
+    },
+    "latitude" : {
+      "@id" : "https://www.w3.org/2006/vcard/ns#latitude"
+    },
+    "wikipediaArticle" : {
+      "@id" : "http://www.geonames.org/ontology/documentation.html#wikipediaArticle"
+    },
+    "wikipedia" : {
+      "@id" : "http://purl.org/ontology/mo/wikipedia"
+    },
+    "picture" : {
+      "@id" : "http://dbpedia.org/ontology/picture"
+    },
+    "name" : {
+      "@id" : "http://dbpedia.org/ontology/name"
+    },
+    "bedCount" : {
+      "@id" : "http://dbpedia.org/ontology/bedCount"
+    },
+    "address" : {
+      "@id" : "http://dbpedia.org/ontology/address"
+    },
+    "Website" : {
+      "@id" : "http://dbpedia.org/ontology/Website"
+    },
+    "mo" : "http://purl.org/ontology/mo/",
+    "rdf" : "https://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "ns" : "https://www.w3.org/2006/vcard/ns#",
+    "gn" : "http://www.geonames.org/ontology/documentation.html#",
+    "wd" : "https://www.wikidata.org/wiki/",
+    "db" : "http://dbpedia.org/ontology/"
+  }
+}
