@@ -18,7 +18,7 @@ public class Request {
 
     public static void main(String[] args) {
         getCities();
-        getHospitalsByCity("Apt");
+        getHospitalsByCity("Paris");
     }
 
     public static String getCities() {
@@ -32,9 +32,10 @@ public class Request {
         QueryExecution exec = QueryExecutionFactory.sparqlService(endpoint, query);
         Model model = exec.execConstruct();
         try {
-            FileWriter writer = new FileWriter("./requestCities.txt");
+            FileWriter writer = new FileWriter("./request.txt");
             model.write(writer, "JSONLD");
             content = new String(Files.readAllBytes(Paths.get("./request.txt")));
+            // Files.deleteIfExists(Paths.get("./request.txt"));
         } catch (IOException e) {
             System.err.println(e);
         }
@@ -62,9 +63,10 @@ public class Request {
         Model model = exec.execConstruct();
         String size = String.valueOf(model.size() / construct.split(";").length);
         try {
-            FileWriter writer = new FileWriter("./requestHospitals.txt");
+            FileWriter writer = new FileWriter("./request.txt");
             model.write(writer, "JSONLD");
-            content = new String(Files.readAllBytes(Paths.get("./requestHospitals.txt")));
+            content = new String(Files.readAllBytes(Paths.get("./request.txt")));
+            // Files.deleteIfExists(Paths.get("./request.txt"));
         } catch (IOException e) {
             System.err.println(e);
         }

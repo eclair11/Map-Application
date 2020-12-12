@@ -1,17 +1,15 @@
 package com.semweb.map.jena;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import com.bordercloud.sparql.SparqlClient;
-import com.bordercloud.sparql.SparqlClientException;
-import com.bordercloud.sparql.SparqlResult;
-
+import org.apache.jena.query.Query;
+import org.apache.jena.query.QueryExecution;
+import org.apache.jena.query.QueryExecutionFactory;
+import org.apache.jena.query.QueryFactory;
+import org.apache.jena.query.QuerySolution;
+import org.apache.jena.query.ResultSet;
+import org.apache.jena.query.Syntax;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -29,73 +27,66 @@ public class Record {
     }
 
     public static void load() {
-        try {
-            URI endpoint = new URI("https://query.wikidata.org/sparql");
-            String select = "SELECT DISTINCT ?item " + "(SAMPLE(?name) AS ?n) " + "(SAMPLE(?bed) AS ?b) "
-                    + "(SAMPLE(?pic) AS ?p) " + "(SAMPLE(?web) AS ?w) " + "(SAMPLE(?street) AS ?s) "
-                    + "(SAMPLE(?city) AS ?c) " + "(SAMPLE(?geo) AS ?g) " + "(SAMPLE(?wikien) AS ?we) "
-                    + "(SAMPLE(?wikifr) AS ?wf) ";
-            String where = "WHERE { ?item wdt:P31/wdt:P279* wd:Q16917 ; wdt:P17 wd:Q142 ; "
-                    + "OPTIONAL { ?item rdfs:label ?name . } " + "OPTIONAL { ?item wdt:P6801 ?bed . } "
-                    + "OPTIONAL { ?item wdt:P18 ?pic . } " + "OPTIONAL { ?item wdt:P856 ?Web. } "
-                    + "OPTIONAL { ?item wdt:P6375 ?street. } " + "OPTIONAL { ?item wdt:P131/rdfs:label ?city . } "
-                    + "{ ?item wdt:P625 ?geo . } "
-                    + "OPTIONAL { ?wikien schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> . } "
-                    + "OPTIONAL { ?wikifr schema:about ?item ; schema:isPartOf <https://fr.wikipedia.org/> . } "
-                    + "FILTER(lang(?name) = 'fr') . " + "FILTER(lang(?city) = 'fr') . " + "} ";
-            String option = "GROUP BY (?item)";
-            String query = select + where + option;
-            SparqlClient sc = new SparqlClient(false);
-            sc.setEndpointRead(endpoint);
-            SparqlResult sr = sc.query(query);
-            ArrayList<HashMap<String, Object>> rows = sr.getModel().getRows();
-            for (HashMap<String, Object> row : rows) {
-                Hospital hospital = new Hospital();
-                hospital.setId(row.get("item").toString());
-                if (row.get("n") != null)
-                    hospital.setName(row.get("n").toString());
-                else
-                    hospital.setName("");
-                if (row.get("b") != null)
-                    hospital.setBed(row.get("b").toString());
-                else
-                    hospital.setBed("");
-                if (row.get("p") != null)
-                    hospital.setPicture(row.get("p").toString());
-                else
-                    hospital.setPicture("");
-                if (row.get("w") != null)
-                    hospital.setWeb(row.get("w").toString());
-                else
-                    hospital.setWeb("");
-                if (row.get("s") != null)
-                    hospital.setStreet(row.get("s").toString());
-                else
-                    hospital.setStreet("");
-                if (row.get("c") != null)
-                    hospital.setCity(row.get("c").toString());
-                else
-                    hospital.setCity("");
-                if (row.get("g") != null) {
-                    String[] point = row.get("g").toString().trim().replaceAll("[^0-9\s.]", "").split("\s");
-                    hospital.setLongitude(point[0]);
-                    hospital.setLatitude(point[1]);
-                } else {
-                    hospital.setLongitude("");
-                    hospital.setLatitude("");
-                }
-                if (row.get("we") != null)
-                    hospital.setWikien(row.get("we").toString());
-                else
-                    hospital.setWikien("");
-                if (row.get("wf") != null)
-                    hospital.setWikifr(row.get("wf").toString());
-                else
-                    hospital.setWikifr("");
-                hospitals.add(hospital);
+        String endpoint = "https://query.wikidata.org/sparql";
+        String prefix = "PREFIX schema: <http://schema.org/> " + "PREFIX wd: <http://www.wikidata.org/entity/> "
+                + "PREFIX wdt: <http://www.wikidata.org/prop/direct/> "
+                + "PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> ";
+        String select = "SELECT DISTINCT ?item " + "(SAMPLE(?name) AS ?n) " + "(SAMPLE(?city) AS ?c) "
+                + "(SAMPLE(?pic) AS ?p) " + "(SAMPLE(?bed) AS ?b) " + "(SAMPLE(?str) AS ?s) " + "(SAMPLE(?web) AS ?w) "
+                + "(SAMPLE(?geo) AS ?g) " + "(SAMPLE(?wikien) AS ?we) " + "(SAMPLE(?wikifr) AS ?wf) ";
+        String where = "WHERE { ?item wdt:P31/wdt:P279* wd:Q16917 ; wdt:P17 wd:Q142 ; "
+                + "{ ?item rdfs:label ?name . } " + "{ ?item wdt:P131/rdfs:label ?city . } "
+                + "OPTIONAL { ?item wdt:P18 ?pic . } " + "OPTIONAL { ?item wdt:P6801 ?bed . } "
+                + "OPTIONAL { ?item wdt:P6375 ?str . } " + "OPTIONAL { ?item wdt:P856 ?web . } "
+                + "{ ?item wdt:P625 ?geo . } "
+                + "OPTIONAL { ?wikien schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> . } "
+                + "OPTIONAL { ?wikifr schema:about ?item ; schema:isPartOf <https://fr.wikipedia.org/> . } "
+                + "FILTER(lang(?name) = 'fr') . " + "FILTER(lang(?city) = 'fr') . " + "} ";
+        String option = "GROUP BY (?item)";
+        String request = prefix + select + where + option;
+        Query query = QueryFactory.create(request, Syntax.syntaxARQ);
+        QueryExecution exec = QueryExecutionFactory.sparqlService(endpoint, query);
+        ResultSet res = exec.execSelect();
+        while (res.hasNext()) {
+            QuerySolution sol = res.next();
+            Hospital hospital = new Hospital();
+            hospital.setId(sol.getResource("item").getLocalName());
+            hospital.setName(sol.getLiteral("n").getLexicalForm());
+            hospital.setCity(sol.getLiteral("c").getLexicalForm());
+            if (sol.getResource("p") != null) {
+                hospital.setPicture(sol.getResource("p").toString());
+            } else {
+                hospital.setPicture("");
             }
-        } catch (URISyntaxException | SparqlClientException e) {
-            e.printStackTrace();
+            if (sol.getLiteral("b") != null) {
+                hospital.setBed(sol.getLiteral("b").getLexicalForm());
+            } else {
+                hospital.setBed("");
+            }
+            if (sol.getLiteral("s") != null) {
+                hospital.setStreet(sol.getLiteral("s").getLexicalForm());
+            } else {
+                hospital.setStreet("");
+            }
+            if (sol.getResource("w") != null) {
+                hospital.setWeb(sol.getResource("w").toString());
+            } else {
+                hospital.setWeb("");
+            }
+            if (sol.getResource("we") != null) {
+                hospital.setWikien(sol.getResource("we").toString());
+            } else {
+                hospital.setWikien("");
+            }
+            if (sol.getResource("wf") != null) {
+                hospital.setWikifr(sol.getResource("wf").toString());
+            } else {
+                hospital.setWikifr("");
+            }
+            String[] point = sol.getLiteral("g").getLexicalForm().trim().replaceAll("[^0-9\s.]", "").split("\s");
+            hospital.setLongitude(point[0]);
+            hospital.setLatitude(point[1]);
+            hospitals.add(hospital);
         }
     }
 
@@ -110,11 +101,11 @@ public class Record {
         Resource code = model.createResource(wd + "Q16917");
         Property type = model.createProperty(rdf + "type");
         Property name = model.createProperty(db + "name");
-        Property bed = model.createProperty(db + "bedCount");
-        Property picture = model.createProperty(db + "picture");
-        Property web = model.createProperty(db + "Website");
-        Property street = model.createProperty(db + "address");
         Property city = model.createProperty(db + "city");
+        Property picture = model.createProperty(db + "picture");
+        Property bed = model.createProperty(db + "bedCount");
+        Property street = model.createProperty(db + "address");
+        Property web = model.createProperty(db + "Website");
         Property lon = model.createProperty(ns + "longitude");
         Property lat = model.createProperty(ns + "latitude");
         Property wikien = model.createProperty(mo + "wikipedia");
@@ -129,27 +120,21 @@ public class Record {
             Resource id = model.createResource(hospital.getId());
             model.add(id, type, code);
             model.add(id, name, hospital.getName());
-            model.add(id, bed, hospital.getBed());
-            model.add(id, picture, hospital.getPicture());
-            model.add(id, web, hospital.getWeb());
-            model.add(id, street, hospital.getStreet());
             model.add(id, city, hospital.getCity());
+            model.add(id, picture, hospital.getPicture());
+            model.add(id, bed, hospital.getBed());
+            model.add(id, street, hospital.getStreet());
+            model.add(id, web, hospital.getWeb());
             model.add(id, lon, hospital.getLongitude());
             model.add(id, lat, hospital.getLatitude());
             model.add(id, wikien, hospital.getWikien());
             model.add(id, wikifr, hospital.getWikifr());
         }
-        try {
-            FileWriter writer = new FileWriter("./output.ttl");
-            model.write(writer, "TURTLE");
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-        String datasetURL = "http://localhost:3030/hospitals";
-        String sparqlEndpoint = datasetURL + "/sparql";
-        String sparqlUpdate = datasetURL + "/update";
-        String graphStore = datasetURL + "/data";
-        RDFConnection connect = RDFConnectionFactory.connect(sparqlEndpoint, sparqlUpdate, graphStore);
+        String url = "http://localhost:3030/hospitals";
+        String endpoint = url + "/sparql";
+        String update = url + "/update";
+        String graph = url + "/data";
+        RDFConnection connect = RDFConnectionFactory.connect(endpoint, update, graph);
         connect.load(model);
     }
 
