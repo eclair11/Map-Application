@@ -39,7 +39,7 @@ public class Record {
                     + "OPTIONAL { ?item rdfs:label ?name . } " + "OPTIONAL { ?item wdt:P6801 ?bed . } "
                     + "OPTIONAL { ?item wdt:P18 ?pic . } " + "OPTIONAL { ?item wdt:P856 ?Web. } "
                     + "OPTIONAL { ?item wdt:P6375 ?street. } " + "OPTIONAL { ?item wdt:P131/rdfs:label ?city . } "
-                    + "OPTIONAL { ?item wdt:P625 ?geo . } "
+                    + "{ ?item wdt:P625 ?geo . } "
                     + "OPTIONAL { ?wikien schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> . } "
                     + "OPTIONAL { ?wikifr schema:about ?item ; schema:isPartOf <https://fr.wikipedia.org/> . } "
                     + "FILTER(lang(?name) = 'fr') . " + "FILTER(lang(?city) = 'fr') . " + "} ";
