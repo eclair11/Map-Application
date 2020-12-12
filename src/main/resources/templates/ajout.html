@@ -1,0 +1,44 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layouts/layout">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ajout</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col" layout:fragment="content">
+                <br />
+
+                <!-- Formulaire de mise à jour -->
+                <br />
+                <h1>Requête SparQL</h1>
+                <form action="#" th:action="@{/ajout}" th:object="${reponse}" method="post">
+
+                    <input type="text" name="reference" placeholder="Label de l'entité référente" />
+                    <input type="text" name="label" placeholder="Nouveau label" />
+
+                    <select name="lang" />
+                    <option th:value="'en'" th:text="Anglais"></option>
+                    <option th:value="'fr'" th:text="Français"></option>
+                    </select>
+
+                    <input type="submit" value="Valider">
+                </form>
+                </br>
+
+                <span th:text="${reponse.reference}"></span>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

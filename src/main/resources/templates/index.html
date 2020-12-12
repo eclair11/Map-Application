@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Index</title>
 
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
@@ -31,7 +30,6 @@
         }
     </style>
 
-
 </head>
 
 <body>
@@ -52,43 +50,45 @@
 
                 </form>
 
-
                 </br>
 
                 <div class="mr-4 mb-2 " id="map"></div>
 
-                 <!--<h3 th:each="coord : ${coords}" th:text="${coord.lat} + ', ' + ${coord.lon}"></h3> -->
                 </br>
                 <table class="table table-striped table-responsive-md btn-table">
                     <thead>
                         <tr>
-                          <th scope="col">Etablissement</th>
-                          <th scope="col">NbLits</th>
-                          <th scope="col">Wiki Fr</th>
-                          <th scope="col">Wiki Eng</th>
-                          <th scope="col">Photo</th>
-                          <th scope="col">Site</th>
+                            <th scope="col">Etablissement</th>
+                            <th scope="col">NbLits</th>
+                            <th scope="col">Wiki Fr</th>
+                            <th scope="col">Wiki Eng</th>
+                            <th scope="col">Photo</th>
+                            <th scope="col">Site</th>
                         </tr>
-                      </thead>
+                    </thead>
                     <tbody>
                         <tr th:each="hospital: ${hospitals}">
                             <td th:text="${hospital.name}" />
                             <td th:text="${hospital.bedCount}" />
-                            <td>                               
-                                <a th:if="${hospital.wikipediaArticle != ''}" th:href="${hospital.wikipediaArticle}" th:text="Wiki-Fr" target="_blank" />
-                                <a th:unless="${hospital.wikipediaArticle != ''}"  />
+                            <td>
+                                <a th:if="${hospital.wikipediaArticle != ''}" th:href="${hospital.wikipediaArticle}"
+                                    th:text="Wiki-Fr" target="_blank" />
+                                <a th:unless="${hospital.wikipediaArticle != ''}" />
                             </td>
-                            <td>                               
-                                <a th:if="${hospital.wikipedia != ''}" th:href="${hospital.wikipedia}" th:text="Wiki-Eng" target="_blank" />
-                                <a th:unless="${hospital.wikipedia != ''}"  />
+                            <td>
+                                <a th:if="${hospital.wikipedia != ''}" th:href="${hospital.wikipedia}"
+                                    th:text="Wiki-Eng" target="_blank" />
+                                <a th:unless="${hospital.wikipedia != ''}" />
                             </td>
-                            <td>                               
-                                <a th:if="${hospital.picture != ''}" th:href="${hospital.picture}" th:text="Image" target="_blank" />
-                                <a th:unless="${hospital.picture != ''}"  />
+                            <td>
+                                <a th:if="${hospital.picture != ''}" th:href="${hospital.picture}" th:text="Image"
+                                    target="_blank" />
+                                <a th:unless="${hospital.picture != ''}" />
                             </td>
-                            <td>                               
-                                <a th:if="${hospital.website != ''}" th:href="${hospital.website}" th:text="Site" target="_blank" />
-                                <a th:unless="${hospital.website != ''}"  />
+                            <td>
+                                <a th:if="${hospital.website != ''}" th:href="${hospital.website}" th:text="Site"
+                                    target="_blank" />
+                                <a th:unless="${hospital.website != ''}" />
                             </td>
                         </tr>
                     </tbody>
@@ -96,37 +96,11 @@
 
                 </br>
 
-                <!-- Formulaire de mise à jour -->
-                <br />
-                <h1>Requête SparQL</h1>
-                <form action="#" th:action="@{/}" th:object="${reponse}" method="post">
-
-                    <input type="text" name="reference" placeholder="Label de l'entité référente" />
-
-                    <input type="text" name="label" placeholder="Nouveau label" />
-
-                    <input type="text" name="description" placeholder="Nouvelle description" />
-
-                    <select name="lang" />
-                    <option th:value="'en'" th:text="Anglais"></option>
-                    <option th:value="'fr'" th:text="Français"></option>
-                    </select>
-
-                    <input type="submit" value="Valider">
-                </form>
-                </br>
-
-                <span th:text="${reponse.reference}"></span>
-
-                
-
-            
                 <script th:inline="javascript">
                     // On initialise la latitude et la longitude de Saint-Étienne Carnot (au centre de la carte)
                     var lat = 45.448007;
                     var lon = 4.38609;
                     var macarte = null;
-
 
                     var coords = [[${ coords }]];
 
@@ -155,7 +129,6 @@
                         initMap();
                     };
                 </script>
-
 
             </div>
         </div>

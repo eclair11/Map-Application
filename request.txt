@@ -1,27 +1,14 @@
 {
-  "@graph" : [ {
-    "@id" : "file:///c:/Users/Cipher/Desktop/DATA/SEMANTIC_WEB/map-app/Q470085",
-    "Website" : "https://www.american-hospital.org/en.html",
-    "address" : "",
-    "bedCount" : "145",
-    "name" : "hôpital américain de Paris",
-    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4ptal%20am%C3%A9ricain%20de%20Neuilly%202011.jpg",
-    "wikipedia" : "https://en.wikipedia.org/wiki/American_Hospital_of_Paris",
-    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_am%C3%A9ricain_de_Paris",
-    "latitude" : "48.8929",
-    "longitude" : "2.2725"
-  }, {
-    "@id" : "file:///c:/Users/Cipher/Desktop/DATA/SEMANTIC_WEB/map-app/Q96606077",
-    "Website" : "",
-    "address" : "34 boulevard du Général Leclerc",
-    "bedCount" : "",
-    "name" : "hôpital municipal de Neuilly-sur-Seine",
-    "picture" : "",
-    "wikipedia" : "",
-    "wikipediaArticle" : "",
-    "latitude" : "48.89058",
-    "longitude" : "2.26238"
-  } ],
+  "@id" : "file:///c:/Users/NIC-DDPFK1.5/Documents/Visual%20Studio%20Code/Semestre%2009/SemanticWeb/Projet/map-app/Q22943419",
+  "Website" : "",
+  "address" : "11, place Saint-Firmin",
+  "bedCount" : "",
+  "name" : "hospice de Beaugency",
+  "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/CP%20hospice%20de%20Beaugency%2C%20Loiret%2C%20Centre%2C%20France.jpg",
+  "wikipedia" : "",
+  "wikipediaArticle" : "",
+  "latitude" : "47.776566",
+  "longitude" : "1.631738",
   "@context" : {
     "longitude" : {
       "@id" : "https://www.w3.org/2006/vcard/ns#longitude"
