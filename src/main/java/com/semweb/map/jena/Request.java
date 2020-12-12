@@ -4,6 +4,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.jena.query.Query;
 import org.apache.jena.query.QueryExecution;
@@ -16,7 +18,7 @@ public class Request {
 
     public static void main(String[] args) {
         getCities();
-        getHospitalsByCity("Paris");
+        getHospitalsByCity("Apt");
     }
 
     public static String getCities() {

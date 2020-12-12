@@ -8,6 +8,7 @@ import java.util.Comparator;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.semweb.map.jena.Request;
 import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Person;
 import com.semweb.map.model.Reponse;
@@ -40,20 +41,22 @@ public class IndexController {
         SparqlHospitalRequestModel[] sparqlHospitalRequestModel = objectMapper.readValue(new File("query.json"), SparqlHospitalRequestModel [].class);
 
         for (SparqlHospitalRequestModel sparqlHospitalRequestModel2 : sparqlHospitalRequestModel) {
-            System.out.println(sparqlHospitalRequestModel2);
+            //System.out.println(sparqlHospitalRequestModel2);
         }
 
         /* Parsing d'un JSon-ld d'une structure Person, juste pour tester  */
         
         ObjectMapper objectMapper2 = new ObjectMapper();
         Person person = objectMapper2.readValue(new File("person.jsonld"), Person.class);
-        System.out.println(person);
+        //System.out.println(person);
 
 
         /* Parsing d'un JSon-ld de la liste des villes disposant d'au moins un hopital */
 
+        String c = Request.getCities();
+
         ObjectMapper objectMapper3 = new ObjectMapper();
-        SparqlTownRequestModel sparqlTownRequestModel = objectMapper3.readValue(new File("request.txt"), SparqlTownRequestModel.class);
+        SparqlTownRequestModel sparqlTownRequestModel = objectMapper3.readValue(c, SparqlTownRequestModel.class);
 
         ArrayList<String> townList = new ArrayList<>();
 
@@ -65,14 +68,20 @@ public class IndexController {
         model.addAttribute("cities", townList);
         model.addAttribute("reponseVille", reponseVille);
 
-        System.out.println(townList);
+        //System.out.println(townList);
         System.out.println(reponseVille.getName());
 
 
         /* Parsing d'un JSon-ld de la liste des hopitaux pour une ville donnée*/
 
+        String ville = "Paris";
+        if (reponseVille.getName() != null) {
+            ville = reponseVille.getName();
+        }
+        String h = Request.getHospitalsByCity(ville);
+
         ObjectMapper objectMapper4 = new ObjectMapper();
-        SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(new File("requestHospitals.txt"), SparqlHospitalRequestLDModel.class);
+        SparqlHospitalRequestLDModel testLD = objectMapper4.readValue(h, SparqlHospitalRequestLDModel.class);
         
         ArrayList<HospitalLD> hospitals = new ArrayList<>();
 
@@ -81,7 +90,7 @@ public class IndexController {
         }
         
         for (HospitalLD hos : hospitals) {
-            System.out.println(hos);
+            //System.out.println(hos);
         }
 
         hospitals.sort(Comparator.comparing(HospitalLD::getName, String.CASE_INSENSITIVE_ORDER));
@@ -117,7 +126,7 @@ public class IndexController {
         /* Récupération de la valeur du 1er champs du formulaire */
 
         model.addAttribute("reponse", reponse);
-        System.out.println(reponse.getReference());
+        //System.out.println(reponse.getReference());
 
         /* Conversion du format de coordonnees bizarre du fichier CSV */
 
@@ -126,7 +135,7 @@ public class IndexController {
 
         Coordinate testCoord = OutilCalcul.metersToLngLat(lon, lat);
 
-        System.out.println("lon = " + testCoord.getLat() + " / lat = " + testCoord.getLon());
+        //System.out.println("lon = " + testCoord.getLat() + " / lat = " + testCoord.getLon());
 
         return "index";
     }
