@@ -1,27 +1,14 @@
 {
-<<<<<<< HEAD
-  "@id" : "http://www.wikidata.org/entity/Q85767921",
+  "@id" : "http://www.wikidata.org/entity/Q537149",
   "Website" : "",
   "address" : "",
   "bedCount" : "",
-  "name" : "hôpital de la Miséricorde d'Ajaccio",
-  "picture" : "",
-  "wikipedia" : "https://en.wikipedia.org/wiki/H%C3%B4pital_de_la_Mis%C3%A9ricorde_d%27Ajaccio",
-  "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_de_la_Mis%C3%A9ricorde_d%27Ajaccio",
-  "latitude" : "41.923",
-  "longitude" : "8.73416",
-=======
-  "@id" : "http://www.wikidata.org/entity/Q22986621",
-  "Website" : "",
-  "address" : "avenue Philippe-de-Girard",
-  "bedCount" : "",
-  "name" : "ancien hôpital d'Apt",
-  "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Ancien%20h%C3%B4pital%20Apt%205.jpg",
-  "wikipedia" : "",
-  "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4pital_d%27Apt",
-  "latitude" : "43.876031",
-  "longitude" : "5.390372",
->>>>>>> a19d8f4a401625b4576b628fbf33eef29f077a2a
+  "name" : "Grand-Hôtel du Cap-Ferrat",
+  "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/Cap-Ferrat%20-%20Avenue%20de%20la%20Corniche%20-%20View%20NNW%20on%20Grand%20Hotel%20du%20Cap%20Ferrat.jpg",
+  "wikipedia" : "https://en.wikipedia.org/wiki/Grand-H%C3%B4tel_du_Cap-Ferrat",
+  "wikipediaArticle" : "https://fr.wikipedia.org/wiki/Grand-H%C3%B4tel_du_Cap-Ferrat",
+  "latitude" : "43.67638889",
+  "longitude" : "7.33138889",
   "@context" : {
     "longitude" : {
       "@id" : "https://www.w3.org/2006/vcard/ns#longitude"

@@ -41,7 +41,8 @@ public class Request {
         return content;
     }
 
-    public static String getHospitalsByCity(String city) {
+    public static Map<String, String> getHospitalsByCity(String city) {
+        Map<String, String> result = new HashMap<>();
         String content = "";
         String endpoint = "http://localhost:3030/hospitals/sparql";
         String prefix = "PREFIX rdf: <https://www.w3.org/1999/02/22-rdf-syntax-ns#> "
@@ -59,7 +60,7 @@ public class Request {
         Query query = QueryFactory.create(request, Syntax.syntaxARQ);
         QueryExecution exec = QueryExecutionFactory.sparqlService(endpoint, query);
         Model model = exec.execConstruct();
-        model.size();
+        String size = String.valueOf(model.size() / construct.split(";").length);
         try {
             FileWriter writer = new FileWriter("./requestHospitals.txt");
             model.write(writer, "JSONLD");
@@ -67,7 +68,9 @@ public class Request {
         } catch (IOException e) {
             System.err.println(e);
         }
-        return content;
+        result.put("content", content);
+        result.put("size", size);
+        return result;
     }
 
 }
