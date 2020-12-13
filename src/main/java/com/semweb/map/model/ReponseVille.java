@@ -1,5 +1,8 @@
 package com.semweb.map.model;
 
+import lombok.Data;
+
+@Data
 public class ReponseVille {
 
     private String name;
@@ -8,14 +11,6 @@ public class ReponseVille {
     }
 
     public ReponseVille(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
     }
 

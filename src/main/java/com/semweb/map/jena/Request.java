@@ -16,11 +16,6 @@ import org.apache.jena.rdf.model.Model;
 
 public class Request {
 
-    public static void main(String[] args) {
-        getCities();
-        getHospitalsByCity("Paris");
-    }
-
     public static String getCities() {
         String content = "";
         String endpoint = "http://localhost:3030/hospitals/sparql";

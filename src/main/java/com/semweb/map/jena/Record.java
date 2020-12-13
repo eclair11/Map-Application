@@ -21,11 +21,6 @@ public class Record {
 
     private static List<Hospital> hospitals = new ArrayList<Hospital>();
 
-    public static void main(String[] args) {
-        load();
-        model();
-    }
-
     public static void load() {
         String endpoint = "https://query.wikidata.org/sparql";
         String prefix = "PREFIX schema: <http://schema.org/> " + "PREFIX wd: <http://www.wikidata.org/entity/> "
@@ -88,9 +83,10 @@ public class Record {
             hospital.setLatitude(point[1]);
             hospitals.add(hospital);
         }
+        model();
     }
 
-    public static void model() {
+    private static void model() {
         Model model = ModelFactory.createDefaultModel();
         String rdf = "https://www.w3.org/1999/02/22-rdf-syntax-ns#";
         String db = "http://dbpedia.org/ontology/";

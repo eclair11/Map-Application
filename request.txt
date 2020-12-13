@@ -1,14 +1,27 @@
 {
-  "@id" : "file:///c:/Users/NIC-DDPFK1.5/Documents/Visual%20Studio%20Code/Semestre%2009/SemanticWeb/Projet/map-app/Q22943419",
-  "Website" : "",
-  "address" : "11, place Saint-Firmin",
-  "bedCount" : "",
-  "name" : "hospice de Beaugency",
-  "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/CP%20hospice%20de%20Beaugency%2C%20Loiret%2C%20Centre%2C%20France.jpg",
-  "wikipedia" : "",
-  "wikipediaArticle" : "",
-  "latitude" : "47.776566",
-  "longitude" : "1.631738",
+  "@graph" : [ {
+    "@id" : "file:///c:/Users/Cipher/Desktop/DATA/SEMANTIC_WEB/map-app/Q3145391",
+    "Website" : "",
+    "address" : "rue de l'Hôpital",
+    "bedCount" : "",
+    "name" : "hôtel-Dieu de Tournus",
+    "picture" : "http://commons.wikimedia.org/wiki/Special:FilePath/H%C3%B4tel-Dieu%20de%20Tournus%20%28Sainte-Marthe%20garden%29.jpg",
+    "wikipedia" : "",
+    "wikipediaArticle" : "https://fr.wikipedia.org/wiki/H%C3%B4tel-Dieu_de_Tournus",
+    "latitude" : "46.5619",
+    "longitude" : "4.91114"
+  }, {
+    "@id" : "file:///c:/Users/Cipher/Desktop/DATA/SEMANTIC_WEB/map-app/Q92310006",
+    "Website" : "",
+    "address" : "",
+    "bedCount" : "",
+    "name" : "hôpital de Belnay",
+    "picture" : "",
+    "wikipedia" : "",
+    "wikipediaArticle" : "",
+    "latitude" : "46.568052645",
+    "longitude" : "4.893259166"
+  } ],
   "@context" : {
     "longitude" : {
       "@id" : "https://www.w3.org/2006/vcard/ns#longitude"
