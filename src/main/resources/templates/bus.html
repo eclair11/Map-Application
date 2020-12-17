@@ -15,10 +15,12 @@
             height: 400px;
             width: 800px;
         }
+
         table,
         td {
             border: 1px solid #333;
         }
+
         thead,
         tfoot {
             background-color: #333;
@@ -32,7 +34,8 @@
         <div class="row">
             <div class="col" layout:fragment="content">
                 </br>
-                <form class="form-group col-md-6" action="#" th:action="@{/map}" th:object="${reponseVille}" method="post">
+                <form class="form-group col-md-6" action="#" th:action="@{/bus}" th:object="${reponseVille}"
+                    method="post">
                     <select name="name" class="form-control">
                         <option th:each="city : ${cities}" th:value="${city}" th:selected="${reponseVille.name eq city}"
                             th:text="${city}">
@@ -40,6 +43,11 @@
                     </select>
                     <input type="submit" value="Valider">
                 </form>
+
+
+                <!-- <div id="bobo" th:text="${bobo}"></div>
+                <p id="demo"></p> -->
+
                 </br>
                 <div class="mr-4 mb-2 " id="map"></div>
                 </br>
@@ -82,14 +90,21 @@
                     </tbody>
                 </table>
                 </br>
+                
                 <script th:inline="javascript">
+                    var currentLat = [[${ currentCoordLat }]];
+                    var currentLon = [[${ currentCoordLon }]];
+                    var currentZoom = [[${ currentZoom }]];
                     var lat = 45.448007;
                     var lon = 4.38609;
                     var macarte = null;
                     var coords = [[${ coords }]];
+                    var mark = "popo";
+                    console.log(mark)
+
                     function initMap() {
                         // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
-                        macarte = L.map('map').setView([lat, lon], 5);
+                        macarte = L.map('map').setView([currentLat, currentLon], currentZoom);
                         // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
                         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
                             // Il est toujours bien de laisser le lien vers la source des données
@@ -100,13 +115,63 @@
                         for (coord in coords) {
                             var marker = L.marker([coords[coord].lat, coords[coord].lon]).addTo(macarte);
                             // Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
-                            marker.bindPopup(coord);
+
+
+                            marker.on('click', function (e) {
+                                console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+                                //alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+
+                                window.mark = "Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng
+                               
+                                // document.getElementById("demo").innerHTML = mark;
+                                console.log(mark)
+
+                                var val = {
+                                    lat : e.latlng.lat,
+                                    lon : e.latlng.lng
+                                }
+
+                                jQuery.ajax({
+                                    type: "POST",
+                                    contentType: "application/json",
+                                    url: "/getTest",
+                                    data: JSON.stringify(val),
+                                    dataType: 'json',
+                                    cache: false,
+                                    timeout: 600000,
+                                    success: function (data) {
+                                        console.log("SUCCESS: ", data);
+
+                                      
+                                        window.location.reload(true);
+                                        //location.replace("/bus")
+
+                                    },
+                                    error: function (e) {
+                                        alert("Error!")
+                                        console.log("ERROR: ", e);
+                                        
+                                    }
+                                });
+
+
+                                
+
+
+                            });
+
+
+
                         }
+
+
                     }
                     window.onload = function () {
                         initMap();
                     };
+
                 </script>
+
             </div>
         </div>
     </div>

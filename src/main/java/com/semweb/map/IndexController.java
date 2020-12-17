@@ -3,7 +3,10 @@ package com.semweb.map;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.validation.Valid;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -11,6 +14,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.semweb.map.jena.Record;
 import com.semweb.map.jena.Request;
+import com.semweb.map.model.ChoosenCoord;
 import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Reponse;
 import com.semweb.map.model.ReponseVille;
@@ -19,9 +23,17 @@ import com.semweb.map.model.SparqlHospitalRequestLDModel.HospitalLD;
 import com.semweb.map.model.SparqlHospitalRequestLDUniqueModel;
 import com.semweb.map.model.SparqlTownRequestModel;
 
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class IndexController {
@@ -29,7 +41,15 @@ public class IndexController {
     /* Gloabl objects used by several Rest Resources */
     ObjectMapper objectMapper = new ObjectMapper();
     Reponse reponse = new Reponse();
-    ReponseVille ReponseVille = new ReponseVille("");
+    ReponseVille ReponseVille = new ReponseVille("", "no");
+
+    String choosenLat = "noValue";
+    String choosenLon = "noValue";
+    Double baseLat = 45.448007;
+    Double baseLon = 4.38609;
+    Double currentLat = 0.0;
+    Double currentLon = 0.0;
+    int currentZoom = 5;
 
 
     /*****************/
@@ -43,7 +63,7 @@ public class IndexController {
         return "index";
     }
 
-    /* Data addition on Fuseki Rest Resource */
+    /* Data addition on Jena Fuseki Rest Resource */
     @RequestMapping("/add")
     public String add(Model model, Reponse reponse) {
         if (reponse.getLabel().equals("true")) {
@@ -70,6 +90,43 @@ public class IndexController {
     /* Hospital Map Rest Resource */
     @RequestMapping("/bus")
     public String bus(Model model, ReponseVille reponseVille) throws JsonParseException, JsonMappingException, IOException {
+        
+        Double currentCoordLat = 0.0;
+        Double currentCoordLon = 0.0;
+        
+        /* 
+        Double currentCoordLat = 0.0;
+        Double currentCoordLon = 0.0;
+
+        if(!choosenLat.equals("noValue") || !choosenLon.equals("noValue")){
+            currentCoordLat = Double.parseDouble(choosenLat);
+            currentCoordLon = Double.parseDouble(choosenLon);
+            currentZoom = 12;
+        }
+        else{
+            currentCoordLat = baseLat;
+            currentCoordLon = baseLon;
+            currentZoom = 5;
+        }
+        
+
+        currentCoordLat = baseLat;
+            currentCoordLon = baseLon;
+            currentZoom = 5;
+        model.addAttribute("currentCoordLat", currentCoordLat);
+        model.addAttribute("currentCoordLon", currentCoordLon);
+
+        model.addAttribute("currentZoom", currentZoom); 
+        */
+
+        currentCoordLat = baseLat;
+            currentCoordLon = baseLon;
+            currentZoom = 5;
+        model.addAttribute("currentCoordLat", currentCoordLat);
+        model.addAttribute("currentCoordLon", currentCoordLon);
+
+        model.addAttribute("currentZoom", currentZoom);
+
 
         model = buildCitiesWithHospitalModel(model, reponseVille);
 
@@ -81,6 +138,19 @@ public class IndexController {
         return "bus";
 
     }
+
+    /* Data addition on Jena Fuseki Rest Resource */
+    
+    @RequestMapping(value = "/getTest", method = RequestMethod.POST)
+    public ResponseEntity<String> getTest(Model model, @RequestBody ChoosenCoord choosenCoord) {
+
+        choosenLat = choosenCoord.getLat();
+        choosenLon = choosenCoord.getLon();
+        
+        System.err.println(choosenCoord);
+        return ResponseEntity.ok(choosenLat);
+    }
+
 
 
     /******************/
@@ -124,6 +194,7 @@ public class IndexController {
             city = reponseVille.getName();
         }
 
+        
         Map<String, String> hospitalsList = Request.getHospitalsByCity(city);
 
         /* Get list with 1 hospital */

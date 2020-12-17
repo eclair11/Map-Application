@@ -15,10 +15,12 @@
             height: 400px;
             width: 800px;
         }
+
         table,
         td {
             border: 1px solid #333;
         }
+
         thead,
         tfoot {
             background-color: #333;
@@ -32,7 +34,8 @@
         <div class="row">
             <div class="col" layout:fragment="content">
                 </br>
-                <form class="form-group col-md-6" action="#" th:action="@{/map}" th:object="${reponseVille}" method="post">
+                <form class="form-group col-md-6" action="#" th:action="@{/map}" th:object="${reponseVille}"
+                    method="post">
                     <select name="name" class="form-control">
                         <option th:each="city : ${cities}" th:value="${city}" th:selected="${reponseVille.name eq city}"
                             th:text="${city}">
@@ -102,6 +105,7 @@
                             // Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
                             marker.bindPopup(coord);
                         }
+
                     }
                     window.onload = function () {
                         initMap();
