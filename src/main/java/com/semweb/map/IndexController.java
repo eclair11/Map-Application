@@ -48,8 +48,8 @@ public class IndexController {
     Reponse reponse = new Reponse();
     ReponseVille ReponseVille = new ReponseVille("", "no");
 
-    String choosenLat = "noValue";
-    String choosenLon = "noValue";
+    String choosenLat = "0";
+    String choosenLon = "0";
     Double baseLat = 45.448007;
     Double baseLon = 4.38609;
     Double currentLat = 0.0;
@@ -132,20 +132,7 @@ public class IndexController {
 
         model = buildHospitalsCoordinatesModel(model, hospitals);
 
-        // CA PLANTE ICI
         model = buildNearbyStopsModel(model, reponseVille);
-
-        /*
-        ObjectMapper objectMapper2 = new ObjectMapper();
-        SparqlBusRequestLDUniqueModel sparqlBusRequestLDModel = objectMapper2.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDUniqueModel.class);
-        */
-        
-        /* 
-        ObjectMapper objectMapper3 = new ObjectMapper();
-        SparqlBusRequestLDModel sparqlBusRequestLDModel = objectMapper3.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDModel.class); 
-        */
-        
-        //System.err.println(sparqlBusRequestLDModel);
 
         return "bus";
 
@@ -237,33 +224,29 @@ public class IndexController {
     private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille)
             throws JsonMappingException, JsonProcessingException {
 
-        Map<String, String> nearbyList = Request.getNearbyStations(0.0, 0.0);
-
-        System.err.println("$$$currentLat = " + currentLat);
-        System.err.println("$$$currentLon = " + currentLon);
-
-        System.err.println("Vérif de la map");
-        nearbyList.forEach((key, value)-> System.err.println("Key: " + key + " - Value : " + value));
+        Map<String, String> nearbyList = Request.getNearbyStations(Double.valueOf(choosenLon),
+                Double.valueOf(choosenLat));
 
         ArrayList<Bus> busList = new ArrayList<>();
 
-        /* Get list with 1 stop */
-        if (Long.valueOf(nearbyList.get("size")) == 1) {
-            SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"), SparqlBusRequestLDUniqueModel.class);
-                    Bus bustmp = fillBusUnique(requestBusUnique);
-                    busList.add(bustmp);
-        }
-        /* Get list with more than 1 stop */
-        else {
-            SparqlBusRequestLDModel requestBusMultiple = objectMapper.readValue(nearbyList.get("content"), SparqlBusRequestLDModel.class);
-
-                System.err.println(requestBusMultiple);
-
-
-            for (BusLD bus : requestBusMultiple.getGraph()) {
-                Bus bustmp = fillBusMulti(bus);
-                //stops.add(bus);
+        if (Long.valueOf(nearbyList.get("size")) != 0) {
+            /* Get list with 1 stop */
+            if (Long.valueOf(nearbyList.get("size")) == 1) {
+                SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"),
+                        SparqlBusRequestLDUniqueModel.class);
+                Bus bustmp = fillBusUnique(requestBusUnique);
                 busList.add(bustmp);
+            }
+            /* Get list with more than 1 stop */
+            else {
+                SparqlBusRequestLDModel requestBusMultiple = objectMapper.readValue(nearbyList.get("content"),
+                        SparqlBusRequestLDModel.class);
+
+                for (BusLD bus : requestBusMultiple.getGraph()) {
+                    Bus bustmp = fillBusMulti(bus);
+                    // stops.add(bus);
+                    busList.add(bustmp);
+                }
             }
         }
 
@@ -309,22 +292,23 @@ public class IndexController {
         return hospital;
     }
 
-
     /**
-     * Filling a bus structure when there is only one hospital in a city called
-     * by {@link #buildNearbyStopsModel()} in the model building methods
+     * Filling a bus structure when there is only one hospital in a city called by
+     * {@link #buildNearbyStopsModel()} in the model building methods
      */
     private Bus fillBusUnique(SparqlBusRequestLDUniqueModel uniqueBus) {
-        Bus bus = new Bus(uniqueBus.getId(), uniqueBus.getDescription().getValue(), uniqueBus.getLabel().getValue(), uniqueBus.getLatitude(), uniqueBus.getLongitude());
+        Bus bus = new Bus(uniqueBus.getId(), uniqueBus.getDescription().getValue(), uniqueBus.getLabel().getValue(),
+                uniqueBus.getLatitude(), uniqueBus.getLongitude());
         return bus;
     }
 
     /**
-     * Filling a bus structure when there is only one hospital in a city called
-     * by {@link #buildNearbyStopsModel()} in the model building methods
+     * Filling a bus structure when there is only one hospital in a city called by
+     * {@link #buildNearbyStopsModel()} in the model building methods
      */
     private Bus fillBusMulti(BusLD multiBus) {
-        Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(), multiBus.getLatitude(), multiBus.getLongitude());
+        Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(),
+                multiBus.getLatitude(), multiBus.getLongitude());
         return bus;
     }
 

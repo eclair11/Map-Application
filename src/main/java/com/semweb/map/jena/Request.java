@@ -82,8 +82,8 @@ public class Request {
         String where = "WHERE { ?item wdt:P31/wdt:P279* wd:Q548662 ; " + "wdt:P17 wd:Q142 ; " + "wdt:P625 ?geo1 ; "
                 + "p:P625 ?coord . " + "?coord psv:P625 ?node . " + "?node wikibase:geoLongitude ?lon ; "
                 + "wikibase:geoLatitude ?lat . "
-                + "FILTER(geof:distance(?geo1, \"POINT(" + lon + " " + lat + ")\") <= 30) . "
-                + "SERVICE wikibase:label { bd:serviceParam wikibase:language \"fr, en\" } }";
+                + "FILTER(geof:distance(?geo1, \"POINT(" + lon + " " + lat + ")\") <= 1) . "
+                + "SERVICE wikibase:label { bd:serviceParam wikibase:language \"fr, en\" } } LIMIT 10";
         String request = prefix + construct + where;
         Query query = QueryFactory.create(request, Syntax.syntaxARQ);
         QueryExecution exec = QueryExecutionFactory.sparqlService(endpoint, query);
@@ -99,10 +99,6 @@ public class Request {
         result.put("content", content);
         result.put("size", size);
         return result;
-    }
-
-    public static void main(String[] args) {
-        getNearbyStations(4.36361, 45.48139);
     }
 
 }

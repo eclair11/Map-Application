@@ -1,0 +1,179 @@
+{
+  "@graph" : [ {
+    "@id" : "wd:Q56735861",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Châtelet situé Victoria (7 Avenue, 4 Rue Saint-Martin) - 75101"
+    },
+    "wikibase:geoLatitude" : 48.8589561813,
+    "wikibase:geoLongitude" : 2.34736125521,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Châtelet"
+    }
+  }, {
+    "@id" : "wd:Q56742668",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Institut Du Monde Arabe situé 4 Rue Des Fosses Saint-Bernard - 75105"
+    },
+    "wikibase:geoLatitude" : 48.8490510358,
+    "wikibase:geoLongitude" : 2.35553019619,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Institut du Monde Arabe"
+    }
+  }, {
+    "@id" : "wd:Q56742763",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Saint-Germain - Cardinal Lemoine situé 3 Boulevard Saint Germain - 75105"
+    },
+    "wikibase:geoLatitude" : 48.8493207447,
+    "wikibase:geoLongitude" : 2.35497194545,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Saint-Germain - Cardinal Lemoine"
+    }
+  }, {
+    "@id" : "wd:Q56743222",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Luxembourg situé 4 Place Edmond Rostand - 75106"
+    },
+    "wikibase:geoLatitude" : 48.8476683242,
+    "wikibase:geoLongitude" : 2.34034591157,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Luxembourg"
+    }
+  }, {
+    "@id" : "wd:Q56743297",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Michel Debre situé 16-18 Rue Du Vieux Colombier - 75106"
+    },
+    "wikibase:geoLatitude" : 48.8517395208,
+    "wikibase:geoLongitude" : 2.33082659619,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Michel Debré"
+    }
+  }, {
+    "@id" : "wd:Q56857401",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Eglise Saint-Gervais situé 12 R Francois Miron - 75104"
+    },
+    "wikibase:geoLatitude" : 48.8558456361,
+    "wikibase:geoLongitude" : 2.35501503428,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Église Saint-Gervais"
+    }
+  }, {
+    "@id" : "wd:Q56858887",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Pont Marie (Cité Des Arts) situé Île Saint-Louis - 75104"
+    },
+    "wikibase:geoLatitude" : 48.8534635857,
+    "wikibase:geoLongitude" : 2.35738397281,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Pont Marie"
+    }
+  }, {
+    "@id" : "wd:Q56858919",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP College De France situé 42 Rue Des Ecoles - 75105"
+    },
+    "wikibase:geoLatitude" : 48.8493217256,
+    "wikibase:geoLongitude" : 2.34621544983,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Collège de France"
+    }
+  }, {
+    "@id" : "wd:Q56859481",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Musee Du Luxembourg situé Face 56 Rue De Vaugirard - 75106"
+    },
+    "wikibase:geoLatitude" : 48.8486658995,
+    "wikibase:geoLongitude" : 2.33297862371,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Musée du Luxembourg"
+    }
+  }, {
+    "@id" : "wd:Q56859487",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Saint-Andre Des Arts situé 53 Rue Dauphine - 75106"
+    },
+    "wikibase:geoLatitude" : 48.8537618653,
+    "wikibase:geoLongitude" : 2.33860299747,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Saint-André des Arts"
+    }
+  } ],
+  "@context" : {
+    "geoLatitude" : {
+      "@id" : "http://wikiba.se/ontology#geoLatitude",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+    "geoLongitude" : {
+      "@id" : "http://wikiba.se/ontology#geoLongitude",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+    "description" : {
+      "@id" : "http://wikiba.se/ontology#description"
+    },
+    "label" : {
+      "@id" : "http://wikiba.se/ontology#label"
+    },
+    "schema" : "http://schema.org/",
+    "pq" : "http://www.wikidata.org/prop/qualifier/",
+    "bd" : "http://www.bigdata.com/rdf#",
+    "pr" : "http://www.wikidata.org/prop/reference/",
+    "ps" : "http://www.wikidata.org/prop/statement/",
+    "geof" : "http://www.opengis.net/def/geosparql/function/",
+    "owl" : "http://www.w3.org/2002/07/owl#",
+    "wdt" : "http://www.wikidata.org/prop/direct/",
+    "mwapi" : "https://www.mediawiki.org/ontology#API/",
+    "wds" : "http://www.wikidata.org/entity/statement/",
+    "xsd" : "http://www.w3.org/2001/XMLSchema#",
+    "fn" : "http://www.w3.org/2005/xpath-functions#",
+    "wdv" : "http://www.wikidata.org/value/",
+    "skos" : "http://www.w3.org/2004/02/skos/core#",
+    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
+    "psn" : "http://www.wikidata.org/prop/statement/value-normalized/",
+    "pqn" : "http://www.wikidata.org/prop/qualifier/value-normalized/",
+    "wd" : "http://www.wikidata.org/entity/",
+    "geo" : "http://www.opengis.net/ont/geosparql#",
+    "psv" : "http://www.wikidata.org/prop/statement/value/",
+    "pqv" : "http://www.wikidata.org/prop/qualifier/value/",
+    "dct" : "http://purl.org/dc/terms/",
+    "gas" : "http://www.bigdata.com/rdf/gas#",
+    "wdata" : "http://www.wikidata.org/wiki/Special:EntityData/",
+    "wdref" : "http://www.wikidata.org/reference/",
+    "ontolex" : "http://www.w3.org/ns/lemon/ontolex#",
+    "prov" : "http://www.w3.org/ns/prov#",
+    "foaf" : "http://xmlns.com/foaf/0.1/",
+    "wikibase" : "http://wikiba.se/ontology#",
+    "prn" : "http://www.wikidata.org/prop/reference/value-normalized/",
+    "p" : "http://www.wikidata.org/prop/",
+    "bds" : "http://www.bigdata.com/rdf/search#",
+    "wdtn" : "http://www.wikidata.org/prop/direct-normalized/",
+    "mediawiki" : "https://www.mediawiki.org/ontology#",
+    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "prv" : "http://www.wikidata.org/prop/reference/value/",
+    "hint" : "http://www.bigdata.com/queryHints#",
+    "wdno" : "http://www.wikidata.org/prop/novalue/",
+    "sesame" : "http://www.openrdf.org/schema/sesame#",
+    "dc" : "http://purl.org/dc/elements/1.1/"
+  }
+}
