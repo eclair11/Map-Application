@@ -1,5 +1,6 @@
 package com.semweb.map;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.semweb.map.jena.Record;
 import com.semweb.map.jena.Request;
+import com.semweb.map.model.Bus;
 import com.semweb.map.model.ChoosenCoord;
 import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Reponse;
@@ -130,6 +132,19 @@ public class IndexController {
 
         model = buildHospitalsCoordinatesModel(model, hospitals);
 
+        // CA PLANTE ICI
+        model = buildNearbyStopsModel(model, reponseVille);
+
+        /*
+        ObjectMapper objectMapper2 = new ObjectMapper();
+        SparqlBusRequestLDUniqueModel sparqlBusRequestLDModel = objectMapper2.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDUniqueModel.class);
+        */
+        
+        /* ObjectMapper objectMapper3 = new ObjectMapper();
+        SparqlBusRequestLDModel sparqlBusRequestLDModel = objectMapper3.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDModel.class); */
+        
+        //System.err.println(sparqlBusRequestLDModel);
+
         return "bus";
 
     }
@@ -217,27 +232,34 @@ public class IndexController {
      * Retrieves the list of stops near the hospital chosen by the user, sorts it,
      * fills in the template and inserts it in the view.
      */
-    private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille, ArrayList<BusLD> stops)
+    private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille)
             throws JsonMappingException, JsonProcessingException {
 
-        Map<String, String> nearbyList = Request.getNearbyStations(currentLon, currentLat);
+        Map<String, String> nearbyList = Request.getNearbyStations(45.23231, 3.45412);
+
+        ArrayList<Bus> busList = new ArrayList<>();
 
         /* Get list with 1 stop */
         if (Long.valueOf(nearbyList.get("size")) == 1) {
-            SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"),
-                    SparqlBusRequestLDUniqueModel.class);
+            SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"), SparqlBusRequestLDUniqueModel.class);
+                    Bus bustmp = fillBusUnique(requestBusUnique);
+                    busList.add(bustmp);
         }
         /* Get list with more than 1 stop */
         else {
-            SparqlBusRequestLDModel requestBusMultiple = objectMapper.readValue(nearbyList.get("content"),
-                    SparqlBusRequestLDModel.class);
+            SparqlBusRequestLDModel requestBusMultiple = objectMapper.readValue(nearbyList.get("content"), SparqlBusRequestLDModel.class);
+
+                System.err.println(requestBusMultiple);
+
+
             for (BusLD bus : requestBusMultiple.getGraph()) {
-                stops.add(bus);
+                Bus bustmp = fillBusMulti(bus);
+                //stops.add(bus);
+                busList.add(bustmp);
             }
         }
 
-        stops.sort(Comparator.comparing(BusLD::getId, String.CASE_INSENSITIVE_ORDER));
-        model.addAttribute("stops", stops);
+        model.addAttribute("busList", busList);
 
         return model;
 
@@ -278,5 +300,25 @@ public class IndexController {
                 uniqueHospital.getLatitude(), uniqueHospital.getLongitude());
         return hospital;
     }
+
+
+    /**
+     * Filling a bus structure when there is only one hospital in a city called
+     * by {@link #buildNearbyStopsModel()} in the model building methods
+     */
+    private Bus fillBusUnique(SparqlBusRequestLDUniqueModel uniqueBus) {
+        Bus bus = new Bus(uniqueBus.getId(), uniqueBus.getDescription().getValue(), uniqueBus.getLabel().getValue(), uniqueBus.getLatitude(), uniqueBus.getLongitude());
+        return bus;
+    }
+
+    /**
+     * Filling a bus structure when there is only one hospital in a city called
+     * by {@link #buildNearbyStopsModel()} in the model building methods
+     */
+    private Bus fillBusMulti(BusLD multiBus) {
+        Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(), multiBus.getLatitude(), multiBus.getLongitude());
+        return bus;
+    }
+
 
 }

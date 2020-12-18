@@ -87,7 +87,7 @@ public class SparqlBusRequestLDModel {
             this.label = label;
         }
 
-        public String getId() {
+		public String getId() {
             return id;
         }
 
