@@ -88,10 +88,10 @@ public class Record {
 
     private static void model() {
         Model model = ModelFactory.createDefaultModel();
-        String rdf = "https://www.w3.org/1999/02/22-rdf-syntax-ns#";
+        String rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
         String db = "http://dbpedia.org/ontology/";
-        String ns = "https://www.w3.org/2006/vcard/ns#";
-        String wd = "https://www.wikidata.org/wiki/";
+        String ns = "http://www.w3.org/2006/vcard/ns#";
+        String wd = "http://www.wikidata.org/wiki/";
         String mo = "http://purl.org/ontology/mo/";
         String gn = "http://www.geonames.org/ontology/documentation.html#";
         Resource code = model.createResource(wd + "Q16917");
