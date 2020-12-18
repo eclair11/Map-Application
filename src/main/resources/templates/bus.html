@@ -12,7 +12,7 @@
         crossorigin=""></script>
     <style type="text/css">
         #map {
-            height: 400px;
+            height: 600px;
             width: 800px;
         }
 
@@ -43,7 +43,6 @@
                     </select>
                     <input type="submit" value="Valider">
                 </form>
-
 
                 <!-- 
                     <tr th:each="bus: ${busList}">
@@ -99,8 +98,7 @@
                 </table>
                 </br>
 
-
-
+                <!-- JAVASCRIPT BEGIN -->
                 <script th:inline="javascript">
                     var currentLat = [[${ currentCoordLat }]];
                     var currentLon = [[${ currentCoordLon }]];
@@ -110,140 +108,88 @@
                     var macarte = null;
                     var coords = [[${ coords }]];
                     var mark = "popo";
-
-
                     var busList = [[${ busList }]];
 
                     for (bus in busList) {
                         console.log(busList[bus].latitude)
                     }
 
-                    console.log(mark)
-
                     function initMap() {
-                        // Créer l'objet "macarte" et l'insèrer dans l'élément HTML qui a l'ID "map"
+
                         macarte = L.map('map').setView([currentLat, currentLon], currentZoom);
-                        // Leaflet ne récupère pas les cartes (tiles) sur un serveur par défaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
+
                         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                            // Il est toujours bien de laisser le lien vers la source des données
                             attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
                             minZoom: 1,
                             maxZoom: 20
                         }).addTo(macarte);
+
                         for (coord in coords) {
                             var marker = L.marker([coords[coord].lat, coords[coord].lon]).addTo(macarte);
-                            // Nous ajoutons la popup. A noter que son contenu (ici la variable ville) peut être du HTML
-
-                            // Test Icones Marker
-                            circle2 = L.circleMarker([5,8]  ).addTo(macarte);
-                            circle = L.circleMarker([2,1] ).addTo(macarte);
-                            circle.setStyle({color: 'green'});
-                            circle2.setStyle({color: 'red'});
-
-
-                            
-
-                            /* var greenIcon = new L.Icon({
-                            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-                            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                            iconSize: [10, 20],
-                            iconAnchor: [12, 41],
-                            popupAnchor: [1, -34],
-                            shadowSize: [41, 41]
-                            });
-
-                            L.marker([51.5, -0.09], {icon: greenIcon}).addTo(macarte); */
-
 
                             marker.on('click', function (e) {
                                 console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-                                //alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-
                                 window.mark = "Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng
-                               
-                                // document.getElementById("demo").innerHTML = mark;
-                                console.log(mark)
 
                                 var val = {
-                                    lat : e.latlng.lat,
-                                    lon : e.latlng.lng
+                                    lat: e.latlng.lat,
+                                    lon: e.latlng.lng
                                 }
 
                                 jQuery.ajax({
                                     type: "POST",
                                     contentType: "application/json",
-                                    url: "/getTest",
+                                    url: "/getHospitalMarkerCoord",
                                     data: JSON.stringify(val),
                                     dataType: 'json',
                                     cache: false,
                                     timeout: 600000,
                                     success: function (data) {
                                         console.log("SUCCESS: ", data);
-
-                                      
                                         window.location.reload(true);
-                                        //location.replace("/bus")
-
                                     },
                                     error: function (e) {
                                         alert("Error!")
                                         console.log("ERROR: ", e);
-                                        
                                     }
                                 });
 
-
-                                
-
-
                             });
-
-
 
                         }
 
                         for (bus in busList) {
 
                             var greenIcon = new L.Icon({
-                            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-                            shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-                            iconSize: [12, 25],
-                            iconAnchor: [12, 41],
-                            popupAnchor: [1, -34],
-                            shadowSize: [41, 41]
+                                iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+                                shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+                                iconSize: [12, 25],
+                                iconAnchor: [12, 41],
+                                popupAnchor: [1, -34],
+                                shadowSize: [41, 41]
                             });
 
-                            var marker = L.marker([busList[bus].latitude, busList[bus].longitude], {icon: greenIcon}).addTo(macarte);
+                            var marker = L.marker([busList[bus].latitude, busList[bus].longitude], { icon: greenIcon }).addTo(macarte);
 
                             marker.bindPopup(busList[bus].label);
 
-
-                            /* busCercle = L.circleMarker([   busList[bus].latitude, busList[bus].longitude  ]  ).addTo(macarte);
-                            busCercle.setStyle({color: 'red'}); */
-
-
                         }
 
-
                     }
-
-
-                    
-
-                    
-
-                    
-
 
                     window.onload = function () {
                         initMap();
                     };
 
                 </script>
+                <!-- JAVASCRIPT END -->
 
             </div>
+
         </div>
+
     </div>
+
 </body>
 
 </html>
