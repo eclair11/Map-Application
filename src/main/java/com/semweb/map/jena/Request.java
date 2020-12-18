@@ -90,7 +90,7 @@ public class Request {
         Model model = exec.execConstruct();
         String size = String.valueOf(model.size() / construct.split(";").length);
         try {
-            FileWriter writer = new FileWriter("./outputMultiple.txt");
+            FileWriter writer = new FileWriter("./output.txt");
             model.write(writer, "JSONLD");
             content = new String(Files.readAllBytes(Paths.get("./output.txt")));
         } catch (IOException e) {

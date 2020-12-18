@@ -140,8 +140,10 @@ public class IndexController {
         SparqlBusRequestLDUniqueModel sparqlBusRequestLDModel = objectMapper2.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDUniqueModel.class);
         */
         
-        /* ObjectMapper objectMapper3 = new ObjectMapper();
-        SparqlBusRequestLDModel sparqlBusRequestLDModel = objectMapper3.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDModel.class); */
+        /* 
+        ObjectMapper objectMapper3 = new ObjectMapper();
+        SparqlBusRequestLDModel sparqlBusRequestLDModel = objectMapper3.readValue(new File("outPutUnique.txt"), SparqlBusRequestLDModel.class); 
+        */
         
         //System.err.println(sparqlBusRequestLDModel);
 
@@ -235,7 +237,13 @@ public class IndexController {
     private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille)
             throws JsonMappingException, JsonProcessingException {
 
-        Map<String, String> nearbyList = Request.getNearbyStations(45.23231, 3.45412);
+        Map<String, String> nearbyList = Request.getNearbyStations(0.0, 0.0);
+
+        System.err.println("$$$currentLat = " + currentLat);
+        System.err.println("$$$currentLon = " + currentLon);
+
+        System.err.println("Vérif de la map");
+        nearbyList.forEach((key, value)-> System.err.println("Key: " + key + " - Value : " + value));
 
         ArrayList<Bus> busList = new ArrayList<>();
 
@@ -319,6 +327,5 @@ public class IndexController {
         Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(), multiBus.getLatitude(), multiBus.getLongitude());
         return bus;
     }
-
 
 }
