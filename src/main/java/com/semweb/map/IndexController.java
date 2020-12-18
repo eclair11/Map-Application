@@ -43,8 +43,8 @@ public class IndexController {
     String choosenLon = "0";
     Double baseLat = 45.448007;
     Double baseLon = 4.38609;
-    Double currentLat = 0.0;
-    Double currentLon = 0.0;
+    Double currentLat = baseLat;
+    Double currentLon = baseLon;
     int currentZoom = 5;
 
     /*****************/
@@ -103,8 +103,8 @@ public class IndexController {
 
         model = buildNearbyStopsModel(model, reponseVille);
 
-        choosenLat = String.valueOf(baseLat);
-        choosenLon = String.valueOf(baseLon);
+        choosenLat = "0";
+        choosenLon = "0";
 
         currentLat = baseLat;
         currentLon = baseLon;
