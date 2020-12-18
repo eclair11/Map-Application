@@ -101,27 +101,34 @@ public class IndexController {
         Double currentCoordLat = 0.0;
         Double currentCoordLon = 0.0;
 
-        /*
-         * Double currentCoordLat = 0.0; Double currentCoordLon = 0.0;
-         * 
-         * if(!choosenLat.equals("noValue") || !choosenLon.equals("noValue")){
-         * currentCoordLat = Double.parseDouble(choosenLat); currentCoordLon =
-         * Double.parseDouble(choosenLon); currentZoom = 12; } else{ currentCoordLat =
-         * baseLat; currentCoordLon = baseLon; currentZoom = 5; }
-         * 
-         * 
-         * currentCoordLat = baseLat; currentCoordLon = baseLon; currentZoom = 5;
-         * model.addAttribute("currentCoordLat", currentCoordLat);
-         * model.addAttribute("currentCoordLon", currentCoordLon);
-         * 
-         * model.addAttribute("currentZoom", currentZoom);
-         */
+        
+         /* currentCoordLat = 0.0; currentCoordLon = 0.0;
+          
+         if(!choosenLat.equals("noValue") || !choosenLon.equals("noValue")){
+            currentCoordLat = Double.parseDouble(choosenLat);
+             currentCoordLon = Double.parseDouble(choosenLon); 
+             currentZoom = 12; 
+            } else{ 
+                currentCoordLat =
+         baseLat; currentCoordLon = baseLon; currentZoom = 5; 
+        }
+         
+          
+          currentCoordLat = baseLat; currentCoordLon = baseLon; currentZoom = 5;
+         model.addAttribute("currentCoordLat", currentCoordLat);
+          model.addAttribute("currentCoordLon", currentCoordLon);
+          
+          model.addAttribute("currentZoom", currentZoom); */
 
+
+        
+        /* 
         currentCoordLat = baseLat;
         currentCoordLon = baseLon;
         currentZoom = 5;
-        model.addAttribute("currentCoordLat", currentCoordLat);
-        model.addAttribute("currentCoordLon", currentCoordLon);
+        */
+        model.addAttribute("currentCoordLat", currentLat);
+        model.addAttribute("currentCoordLon", currentLon);
 
         model.addAttribute("currentZoom", currentZoom);
 
@@ -134,6 +141,13 @@ public class IndexController {
 
         model = buildNearbyStopsModel(model, reponseVille);
 
+        choosenLat = "0";
+        choosenLon = "0";
+
+        currentLat = baseLat;
+        currentLon = baseLon;
+        currentZoom = 5;
+
         return "bus";
 
     }
@@ -145,6 +159,10 @@ public class IndexController {
 
         choosenLat = choosenCoord.getLat();
         choosenLon = choosenCoord.getLon();
+
+        currentLat = Double.parseDouble(choosenLat);
+             currentLon = Double.parseDouble(choosenLon); 
+             currentZoom = 12; 
 
         System.err.println(choosenCoord);
         return ResponseEntity.ok(choosenLat);
@@ -231,7 +249,7 @@ public class IndexController {
 
         if (Long.valueOf(nearbyList.get("size")) != 0) {
             /* Get list with 1 stop */
-            if (Long.valueOf(nearbyList.get("size")) == 1) {
+            if (Long.valueOf(nearbyList.get("size")) == 2) {
                 SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"),
                         SparqlBusRequestLDUniqueModel.class);
                 Bus bustmp = fillBusUnique(requestBusUnique);
@@ -309,8 +327,32 @@ public class IndexController {
      * {@link #buildNearbyStopsModel()} in the model building methods
      */
     private Bus fillBusMulti(BusLD multiBus) {
-        Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(),
-                multiBus.getLatitude(), multiBus.getLongitude());
+        System.err.println(multiBus);
+        //Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(), multiBus.getLatitude(), multiBus.getLongitude());
+
+        Bus bus = new Bus();
+
+        if( !multiBus.getId().isEmpty() || multiBus.getId() != null){
+            bus.setId(multiBus.getId());
+        }
+
+        if( multiBus.getDescription() != null){
+            bus.setDescription(multiBus.getDescription().getValue());
+        }
+
+        if( multiBus.getLabel() != null){
+            bus.setLabel(multiBus.getLabel().getValue());
+        }
+
+        if( multiBus.getLatitude() != null){
+            bus.setLatitude(multiBus.getLatitude());
+        }
+
+        if( multiBus.getLongitude() != null){
+            bus.setLongitude(multiBus.getLongitude());
+        }
+        
+
         return bus;
     }
 
