@@ -210,7 +210,7 @@ public class IndexController {
 
         if (Long.valueOf(nearbyList.get("size")) != 0) {
             /* Get list with 1 stop */
-            if (Long.valueOf(nearbyList.get("size")) == 2) {
+            if (Long.valueOf(nearbyList.get("size")) == 1) {
                 SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"),
                         SparqlBusRequestLDUniqueModel.class);
                 Bus bustmp = fillBusUnique(requestBusUnique);

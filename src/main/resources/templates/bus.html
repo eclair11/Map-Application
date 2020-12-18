@@ -11,18 +11,16 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
     <style type="text/css">
-        #map {
+        #mapHospital {
             height: 600px;
             width: 800px;
         }
 
-        table,
-        td {
+        table, td {
             border: 1px solid #333;
         }
 
-        thead,
-        tfoot {
+        thead, tfoot {
             background-color: #333;
             color: #fff;
         }
@@ -44,19 +42,8 @@
                     <input type="submit" value="Valider">
                 </form>
 
-                <!-- 
-                    <tr th:each="bus: ${busList}">
-                    <td th:text="${bus.latitude}" />
-                    <td th:text="${bus.longitude}" />
-                </tr> 
-            -->
-
-
-                <!-- <div id="bobo" th:text="${bobo}"></div>
-                <p id="demo"></p> -->
-
                 </br>
-                <div class="mr-4 mb-2 " id="map"></div>
+                <div class="mr-4 mb-2 " id="mapHospital"></div>
                 </br>
                 <table class="table table-striped table-responsive-md btn-table">
                     <thead>
@@ -105,7 +92,7 @@
                     var currentZoom = [[${ currentZoom }]];
                     var lat = 45.448007;
                     var lon = 4.38609;
-                    var macarte = null;
+                    var mapHospital = null;
                     var coords = [[${ coords }]];
                     var mark = "popo";
                     var busList = [[${ busList }]];
@@ -116,16 +103,16 @@
 
                     function initMap() {
 
-                        macarte = L.map('map').setView([currentLat, currentLon], currentZoom);
+                        mapHospital = L.map('mapHospital').setView([currentLat, currentLon], currentZoom);
 
                         L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                            attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                            attribution: 'Copyright © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - Projet pour <a href="//mines-stetienne.fr/">Ecole des mines</a>',
                             minZoom: 1,
                             maxZoom: 20
-                        }).addTo(macarte);
+                        }).addTo(mapHospital);
 
                         for (coord in coords) {
-                            var marker = L.marker([coords[coord].lat, coords[coord].lon]).addTo(macarte);
+                            var marker = L.marker([coords[coord].lat, coords[coord].lon]).addTo(mapHospital);
 
                             marker.on('click', function (e) {
                                 console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
@@ -164,12 +151,12 @@
                                 iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
                                 shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
                                 iconSize: [12, 25],
-                                iconAnchor: [12, 41],
-                                popupAnchor: [1, -34],
-                                shadowSize: [41, 41]
+                                iconAnchor: [12, 30],
+                                popupAnchor: [2, -30],
+                                shadowSize: [35, 35]
                             });
 
-                            var marker = L.marker([busList[bus].latitude, busList[bus].longitude], { icon: greenIcon }).addTo(macarte);
+                            var marker = L.marker([busList[bus].latitude, busList[bus].longitude], { icon: greenIcon }).addTo(mapHospital);
 
                             marker.bindPopup(busList[bus].label);
 
