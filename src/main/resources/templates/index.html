@@ -10,8 +10,9 @@
     <div class="container">
         <div class="row">
             <div class="col" layout:fragment="content">
+                <br />
                 <form action="#" th:action="@{/add}" th:object="${reponse}" method="post">
-                    <input type="hidden" id="label" name="label" th:value="true">
+                    <input type="text" id="label" name="label" th:value="true">
                     <input type="submit" value="Ajout des données">
                 </form>
             </div>

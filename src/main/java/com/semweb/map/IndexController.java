@@ -60,12 +60,12 @@ public class IndexController {
     }
 
     /* Data addition on Jena Fuseki Rest Resource */
-    @RequestMapping("/add")
+    @RequestMapping("/index")
     public String add(Model model, Reponse reponse) {
-        if (reponse.getLabel().equals("true")) {
-            Record.load();
-        }
-        return "redirect:/map";
+        
+        
+
+        return "index";
     }
 
     /* Hospital Map Rest Resource */
