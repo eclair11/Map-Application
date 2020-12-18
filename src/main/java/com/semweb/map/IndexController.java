@@ -18,10 +18,13 @@ import com.semweb.map.model.ChoosenCoord;
 import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Reponse;
 import com.semweb.map.model.ReponseVille;
+import com.semweb.map.model.SparqlBusRequestLDModel;
+import com.semweb.map.model.SparqlBusRequestLDUniqueModel;
 import com.semweb.map.model.SparqlHospitalRequestLDModel;
 import com.semweb.map.model.SparqlHospitalRequestLDModel.HospitalLD;
 import com.semweb.map.model.SparqlHospitalRequestLDUniqueModel;
 import com.semweb.map.model.SparqlTownRequestModel;
+import com.semweb.map.model.SparqlBusRequestLDModel.BusLD;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -51,7 +54,6 @@ public class IndexController {
     Double currentLon = 0.0;
     int currentZoom = 5;
 
-
     /*****************/
     /* Rest Resource */
     /*****************/
@@ -75,7 +77,8 @@ public class IndexController {
 
     /* Hospital Map Rest Resource */
     @RequestMapping("/map")
-    public String map(Model model, ReponseVille reponseVille) throws JsonParseException, JsonMappingException, IOException {
+    public String map(Model model, ReponseVille reponseVille)
+            throws JsonParseException, JsonMappingException, IOException {
 
         model = buildCitiesWithHospitalModel(model, reponseVille);
 
@@ -90,44 +93,35 @@ public class IndexController {
 
     /* Hospital Map Rest Resource */
     @RequestMapping("/bus")
-    public String bus(Model model, ReponseVille reponseVille) throws JsonParseException, JsonMappingException, IOException {
-        
-        Double currentCoordLat = 0.0;
-        Double currentCoordLon = 0.0;
-        
-        /* 
+    public String bus(Model model, ReponseVille reponseVille)
+            throws JsonParseException, JsonMappingException, IOException {
+
         Double currentCoordLat = 0.0;
         Double currentCoordLon = 0.0;
 
-        if(!choosenLat.equals("noValue") || !choosenLon.equals("noValue")){
-            currentCoordLat = Double.parseDouble(choosenLat);
-            currentCoordLon = Double.parseDouble(choosenLon);
-            currentZoom = 12;
-        }
-        else{
-            currentCoordLat = baseLat;
-            currentCoordLon = baseLon;
-            currentZoom = 5;
-        }
-        
+        /*
+         * Double currentCoordLat = 0.0; Double currentCoordLon = 0.0;
+         * 
+         * if(!choosenLat.equals("noValue") || !choosenLon.equals("noValue")){
+         * currentCoordLat = Double.parseDouble(choosenLat); currentCoordLon =
+         * Double.parseDouble(choosenLon); currentZoom = 12; } else{ currentCoordLat =
+         * baseLat; currentCoordLon = baseLon; currentZoom = 5; }
+         * 
+         * 
+         * currentCoordLat = baseLat; currentCoordLon = baseLon; currentZoom = 5;
+         * model.addAttribute("currentCoordLat", currentCoordLat);
+         * model.addAttribute("currentCoordLon", currentCoordLon);
+         * 
+         * model.addAttribute("currentZoom", currentZoom);
+         */
 
         currentCoordLat = baseLat;
-            currentCoordLon = baseLon;
-            currentZoom = 5;
-        model.addAttribute("currentCoordLat", currentCoordLat);
-        model.addAttribute("currentCoordLon", currentCoordLon);
-
-        model.addAttribute("currentZoom", currentZoom); 
-        */
-
-        currentCoordLat = baseLat;
-            currentCoordLon = baseLon;
-            currentZoom = 5;
+        currentCoordLon = baseLon;
+        currentZoom = 5;
         model.addAttribute("currentCoordLat", currentCoordLat);
         model.addAttribute("currentCoordLon", currentCoordLon);
 
         model.addAttribute("currentZoom", currentZoom);
-
 
         model = buildCitiesWithHospitalModel(model, reponseVille);
 
@@ -141,18 +135,16 @@ public class IndexController {
     }
 
     /* Data addition on Jena Fuseki Rest Resource */
-    
+
     @RequestMapping(value = "/getTest", method = RequestMethod.POST)
     public ResponseEntity<String> getTest(Model model, @RequestBody ChoosenCoord choosenCoord) {
 
         choosenLat = choosenCoord.getLat();
         choosenLon = choosenCoord.getLon();
-        
+
         System.err.println(choosenCoord);
         return ResponseEntity.ok(choosenLat);
     }
-
-
 
     /******************/
     /* Model Building */
@@ -162,7 +154,8 @@ public class IndexController {
      * get the cities with hospital from Jena Fuseki and fill the model to feed the
      * View
      */
-    private Model buildCitiesWithHospitalModel(Model model, ReponseVille reponseVille) throws JsonMappingException, JsonProcessingException {
+    private Model buildCitiesWithHospitalModel(Model model, ReponseVille reponseVille)
+            throws JsonMappingException, JsonProcessingException {
 
         /* Get cities with hospitals */
         SparqlTownRequestModel sparqlTownRequestModel = objectMapper.readValue(Request.getCities(),
@@ -195,20 +188,20 @@ public class IndexController {
             city = reponseVille.getName();
         }
 
-        
         Map<String, String> hospitalsList = Request.getHospitalsByCity(city);
 
         /* Get list with 1 hospital */
         if (Long.valueOf(hospitalsList.get("size")) == 1) {
-            SparqlHospitalRequestLDUniqueModel requestHospitalUnique = objectMapper.readValue(hospitalsList.get("content"), SparqlHospitalRequestLDUniqueModel.class);
+            SparqlHospitalRequestLDUniqueModel requestHospitalUnique = objectMapper
+                    .readValue(hospitalsList.get("content"), SparqlHospitalRequestLDUniqueModel.class);
             HospitalLD uniqueHospital = fillHospitalUnique(requestHospitalUnique);
             hospitals.add(uniqueHospital);
         }
         /* Get list with more than 1 hospital */
         else {
-            SparqlHospitalRequestLDModel testLD = objectMapper.readValue(hospitalsList.get("content"),
+            SparqlHospitalRequestLDModel requestHospitalMultiple = objectMapper.readValue(hospitalsList.get("content"),
                     SparqlHospitalRequestLDModel.class);
-            for (HospitalLD hos : testLD.getGraph()) {
+            for (HospitalLD hos : requestHospitalMultiple.getGraph()) {
                 hospitals.add(hos);
             }
         }
@@ -224,22 +217,27 @@ public class IndexController {
      * Retrieves the list of stops near the hospital chosen by the user, sorts it,
      * fills in the template and inserts it in the view.
      */
-    private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille, ArrayList<HospitalLD> hospitals)
+    private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille, ArrayList<BusLD> stops)
             throws JsonMappingException, JsonProcessingException {
 
         Map<String, String> nearbyList = Request.getNearbyStations(currentLon, currentLat);
 
         /* Get list with 1 stop */
         if (Long.valueOf(nearbyList.get("size")) == 1) {
-            
+            SparqlBusRequestLDUniqueModel requestBusUnique = objectMapper.readValue(nearbyList.get("content"),
+                    SparqlBusRequestLDUniqueModel.class);
         }
         /* Get list with more than 1 stop */
         else {
-            
+            SparqlBusRequestLDModel requestBusMultiple = objectMapper.readValue(nearbyList.get("content"),
+                    SparqlBusRequestLDModel.class);
+            for (BusLD bus : requestBusMultiple.getGraph()) {
+                stops.add(bus);
+            }
         }
 
-        hospitals.sort(Comparator.comparing(HospitalLD::getName, String.CASE_INSENSITIVE_ORDER));
-        model.addAttribute("hospitals", hospitals);
+        stops.sort(Comparator.comparing(BusLD::getId, String.CASE_INSENSITIVE_ORDER));
+        model.addAttribute("stops", stops);
 
         return model;
 
@@ -264,7 +262,6 @@ public class IndexController {
 
         return model;
     }
-
 
     /*****************/
     /* Utils Methods */
