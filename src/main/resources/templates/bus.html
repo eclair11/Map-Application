@@ -213,7 +213,9 @@
                             shadowSize: [41, 41]
                             });
 
-                            L.marker([busList[bus].latitude, busList[bus].longitude], {icon: greenIcon}).addTo(macarte);
+                            var marker = L.marker([busList[bus].latitude, busList[bus].longitude], {icon: greenIcon}).addTo(macarte);
+
+                            marker.bindPopup(busList[bus].label);
 
 
                             /* busCercle = L.circleMarker([   busList[bus].latitude, busList[bus].longitude  ]  ).addTo(macarte);
