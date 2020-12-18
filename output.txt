@@ -1,5 +1,140 @@
 {
+  "@graph" : [ {
+    "@id" : "wd:Q261320",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "gare ferroviaire française"
+    },
+    "wikibase:geoLatitude" : 48.839039,
+    "wikibase:geoLongitude" : 2.383081,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "gare de Paris-Bercy-Bourgogne-Pays-d'Auvergne"
+    }
+  }, {
+    "@id" : "wd:Q56708601",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Michel Bizot situé Daumesnil (253 Avenue, 122 Rue De Picpus) - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8369910377,
+    "wikibase:geoLongitude" : 2.40291960687,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Michel Bizot"
+    }
+  }, {
+    "@id" : "wd:Q56708617",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Porte De Charenton situé Poniatowsky (68 Boulevard, Angle Avec La Rue Ferdinand-De-Béhagle) - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8326603465,
+    "wikibase:geoLongitude" : 2.40046363845,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Porte de Charenton"
+    }
+  }, {
+    "@id" : "wd:Q56743139",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Dijon - Lachambeaudie situé 3 Rue Dijon - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8358936126,
+    "wikibase:geoLongitude" : 2.38619940475,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Dijon - Lachambeaudie"
+    }
+  }, {
+    "@id" : "wd:Q56858165",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Place Edouard Renard situé 1 Place Edouard Renard - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8355954486,
+    "wikibase:geoLongitude" : 2.40732896842,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Place Édouard Renard"
+    }
+  }, {
+    "@id" : "wd:Q56858323",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Mairie Du 12E situé 130 Avenue Daumesnil - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8417623492,
+    "wikibase:geoLongitude" : 2.38654534685,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Mairie du 12e"
+    }
+  }, {
+    "@id" : "wd:Q56858324",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Daumesnil - Felix Eboue situé 195 Bis Avenue Daumesnil - 75112"
+    },
+    "wikibase:geoLatitude" : 48.839961224,
+    "wikibase:geoLongitude" : 2.39461776685,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Daumesnil - Félix Éboué"
+    }
+  }, {
+    "@id" : "wd:Q56859584",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Charenton - Wattignies situé 39 Rue Proudhon - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8374732423,
+    "wikibase:geoLongitude" : 2.39125209055,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Charenton - Wattignies"
+    }
+  }, {
+    "@id" : "wd:Q56859962",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "arrêt de bus RATP Porte De Reuilly situé 40 Av Du General Michel Bizot - 75112"
+    },
+    "wikibase:geoLatitude" : 48.8341524321,
+    "wikibase:geoLongitude" : 2.40019317189,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "arrêt Porte de Reuilly"
+    }
+  }, {
+    "@id" : "wd:Q602615",
+    "description" : {
+      "@language" : "fr",
+      "@value" : "station du métro de Paris"
+    },
+    "wikibase:geoLatitude" : 48.83905,
+    "wikibase:geoLongitude" : 2.3899638888889,
+    "label" : {
+      "@language" : "fr",
+      "@value" : "Dugommier"
+    }
+  } ],
   "@context" : {
+    "geoLatitude" : {
+      "@id" : "http://wikiba.se/ontology#geoLatitude",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+    "geoLongitude" : {
+      "@id" : "http://wikiba.se/ontology#geoLongitude",
+      "@type" : "http://www.w3.org/2001/XMLSchema#double"
+    },
+    "description" : {
+      "@id" : "http://wikiba.se/ontology#description"
+    },
+    "label" : {
+      "@id" : "http://wikiba.se/ontology#label"
+    },
     "schema" : "http://schema.org/",
     "pq" : "http://www.wikidata.org/prop/qualifier/",
     "bd" : "http://www.bigdata.com/rdf#",

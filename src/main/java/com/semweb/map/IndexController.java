@@ -250,6 +250,8 @@ public class IndexController {
             }
         }
 
+        busList.forEach(re -> System.out.println());
+
         model.addAttribute("busList", busList);
 
         return model;
