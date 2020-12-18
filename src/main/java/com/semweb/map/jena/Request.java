@@ -82,7 +82,7 @@ public class Request {
         String where = "WHERE { ?item wdt:P31/wdt:P279* wd:Q548662 ; " + "wdt:P17 wd:Q142 ; " + "wdt:P625 ?geo1 ; "
                 + "p:P625 ?coord . " + "?coord psv:P625 ?node . " + "?node wikibase:geoLongitude ?lon ; "
                 + "wikibase:geoLatitude ?lat . "
-                + "FILTER(geof:distance(?geo1, \"POINT(" + lon + " " + lat + ")\") <= 3) . "
+                + "FILTER(geof:distance(?geo1, \"POINT(" + lon + " " + lat + ")\") <= 30) . "
                 + "SERVICE wikibase:label { bd:serviceParam wikibase:language \"fr, en\" } }";
         String request = prefix + construct + where;
         Query query = QueryFactory.create(request, Syntax.syntaxARQ);
@@ -90,7 +90,7 @@ public class Request {
         Model model = exec.execConstruct();
         String size = String.valueOf(model.size() / construct.split(";").length);
         try {
-            FileWriter writer = new FileWriter("./output.txt");
+            FileWriter writer = new FileWriter("./outputMultiple.txt");
             model.write(writer, "JSONLD");
             content = new String(Files.readAllBytes(Paths.get("./output.txt")));
         } catch (IOException e) {
