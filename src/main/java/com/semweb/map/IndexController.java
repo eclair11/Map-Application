@@ -1,13 +1,9 @@
 package com.semweb.map;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Map;
-
-import javax.validation.Valid;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -21,24 +17,19 @@ import com.semweb.map.model.Coordinate;
 import com.semweb.map.model.Reponse;
 import com.semweb.map.model.ReponseVille;
 import com.semweb.map.model.SparqlBusRequestLDModel;
+import com.semweb.map.model.SparqlBusRequestLDModel.BusLD;
 import com.semweb.map.model.SparqlBusRequestLDUniqueModel;
 import com.semweb.map.model.SparqlHospitalRequestLDModel;
 import com.semweb.map.model.SparqlHospitalRequestLDModel.HospitalLD;
 import com.semweb.map.model.SparqlHospitalRequestLDUniqueModel;
 import com.semweb.map.model.SparqlTownRequestModel;
-import com.semweb.map.model.SparqlBusRequestLDModel.BusLD;
 
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class IndexController {
@@ -65,7 +56,7 @@ public class IndexController {
     public String index(Model model, Reponse reponse) {
         model.addAttribute("reponse", reponse);
         Record.load();
-        return "redirect:/map";
+        return "redirect:/bus";
     }
 
     /* Data addition on Jena Fuseki Rest Resource */
@@ -98,35 +89,6 @@ public class IndexController {
     public String bus(Model model, ReponseVille reponseVille)
             throws JsonParseException, JsonMappingException, IOException {
 
-        Double currentCoordLat = 0.0;
-        Double currentCoordLon = 0.0;
-
-        
-         /* currentCoordLat = 0.0; currentCoordLon = 0.0;
-          
-         if(!choosenLat.equals("noValue") || !choosenLon.equals("noValue")){
-            currentCoordLat = Double.parseDouble(choosenLat);
-             currentCoordLon = Double.parseDouble(choosenLon); 
-             currentZoom = 12; 
-            } else{ 
-                currentCoordLat =
-         baseLat; currentCoordLon = baseLon; currentZoom = 5; 
-        }
-         
-          
-          currentCoordLat = baseLat; currentCoordLon = baseLon; currentZoom = 5;
-         model.addAttribute("currentCoordLat", currentCoordLat);
-          model.addAttribute("currentCoordLon", currentCoordLon);
-          
-          model.addAttribute("currentZoom", currentZoom); */
-
-
-        
-        /* 
-        currentCoordLat = baseLat;
-        currentCoordLon = baseLon;
-        currentZoom = 5;
-        */
         model.addAttribute("currentCoordLat", currentLat);
         model.addAttribute("currentCoordLon", currentLon);
 
@@ -141,8 +103,8 @@ public class IndexController {
 
         model = buildNearbyStopsModel(model, reponseVille);
 
-        choosenLat = "0";
-        choosenLon = "0";
+        choosenLat = String.valueOf(baseLat);
+        choosenLon = String.valueOf(baseLon);
 
         currentLat = baseLat;
         currentLon = baseLon;
@@ -154,17 +116,16 @@ public class IndexController {
 
     /* Data addition on Jena Fuseki Rest Resource */
 
-    @RequestMapping(value = "/getTest", method = RequestMethod.POST)
-    public ResponseEntity<String> getTest(Model model, @RequestBody ChoosenCoord choosenCoord) {
+    @RequestMapping(value = "/getHospitalMarkerCoord", method = RequestMethod.POST)
+    public ResponseEntity<String> getHospitalMarkerCoord(Model model, @RequestBody ChoosenCoord choosenCoord) {
 
         choosenLat = choosenCoord.getLat();
         choosenLon = choosenCoord.getLon();
 
         currentLat = Double.parseDouble(choosenLat);
-             currentLon = Double.parseDouble(choosenLon); 
-             currentZoom = 12; 
+        currentLon = Double.parseDouble(choosenLon);
+        currentZoom = 12;
 
-        System.err.println(choosenCoord);
         return ResponseEntity.ok(choosenLat);
     }
 
@@ -259,10 +220,8 @@ public class IndexController {
             else {
                 SparqlBusRequestLDModel requestBusMultiple = objectMapper.readValue(nearbyList.get("content"),
                         SparqlBusRequestLDModel.class);
-
                 for (BusLD bus : requestBusMultiple.getGraph()) {
                     Bus bustmp = fillBusMulti(bus);
-                    // stops.add(bus);
                     busList.add(bustmp);
                 }
             }
@@ -313,7 +272,7 @@ public class IndexController {
     }
 
     /**
-     * Filling a bus structure when there is only one hospital in a city called by
+     * Filling a bus structure when there is only one bus called by
      * {@link #buildNearbyStopsModel()} in the model building methods
      */
     private Bus fillBusUnique(SparqlBusRequestLDUniqueModel uniqueBus) {
@@ -323,35 +282,31 @@ public class IndexController {
     }
 
     /**
-     * Filling a bus structure when there is only one hospital in a city called by
+     * Filling a bus structure when there are many called by
      * {@link #buildNearbyStopsModel()} in the model building methods
      */
     private Bus fillBusMulti(BusLD multiBus) {
-        System.err.println(multiBus);
-        //Bus bus = new Bus(multiBus.getId(), multiBus.getDescription().getValue(), multiBus.getLabel().getValue(), multiBus.getLatitude(), multiBus.getLongitude());
-
         Bus bus = new Bus();
 
-        if( !multiBus.getId().isEmpty() || multiBus.getId() != null){
+        if (!multiBus.getId().isEmpty() || multiBus.getId() != null) {
             bus.setId(multiBus.getId());
         }
 
-        if( multiBus.getDescription() != null){
+        if (multiBus.getDescription() != null) {
             bus.setDescription(multiBus.getDescription().getValue());
         }
 
-        if( multiBus.getLabel() != null){
+        if (multiBus.getLabel() != null) {
             bus.setLabel(multiBus.getLabel().getValue());
         }
 
-        if( multiBus.getLatitude() != null){
+        if (multiBus.getLatitude() != null) {
             bus.setLatitude(multiBus.getLatitude());
         }
 
-        if( multiBus.getLongitude() != null){
+        if (multiBus.getLongitude() != null) {
             bus.setLongitude(multiBus.getLongitude());
         }
-        
 
         return bus;
     }
