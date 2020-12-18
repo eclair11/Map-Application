@@ -112,6 +112,16 @@
 			<artifactId>jsonld-java</artifactId>
 			<version>0.13.2</version>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.3</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
