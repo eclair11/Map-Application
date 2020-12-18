@@ -1,39 +1,89 @@
 package com.semweb.map.model;
 
-import java.util.Arrays;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SparqlBusRequestLDModel {
+public class SparqlBusRequestLDUniqueModel {
 
-
-    /***********/
-    /** Graph **/
-    /***********/
+    /***********************************/
+    /** SparqlBusRequestLDUniqueModel **/
+    /***********************************/
 
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonProperty("@graph")
-    private BusLD[] graph;
+    @JsonProperty("@id")
+    private String id;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("description")
+    private Description description;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("wikibase:geoLatitude")
+    private Double latitude;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("wikibase:geoLongitude")
+    private Double longitude;
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonProperty("label")
+    private Label label;
 
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("@context")
     private Context context;
 
-    public SparqlBusRequestLDModel() {
+    public SparqlBusRequestLDUniqueModel() {
     }
 
-    public SparqlBusRequestLDModel(BusLD[] graph, Context context) {
-        this.graph = graph;
+    public SparqlBusRequestLDUniqueModel(String id, Description description, Double latitude, Double longitude,
+            Label label, Context context) {
+        this.id = id;
+        this.description = description;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.label = label;
         this.context = context;
     }
 
-    public BusLD[] getGraph() {
-        return graph;
+    public String getId() {
+        return id;
     }
 
-    public void setGraph(BusLD[] graph) {
-        this.graph = graph;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Description getDescription() {
+        return description;
+    }
+
+    public void setDescription(Description description) {
+        this.description = description;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Label getLabel() {
+        return label;
+    }
+
+    public void setLabel(Label label) {
+        this.label = label;
     }
 
     public Context getContext() {
@@ -46,187 +96,99 @@ public class SparqlBusRequestLDModel {
 
     @Override
     public String toString() {
-        return "SparqlBusRequestLDModel [context=" + context + ", graph=" + Arrays.toString(graph) + "]";
+        return "SparqlBusRequestLDUniqueModel [context=" + context + ", description=" + description + ", id=" + id
+                + ", label=" + label + ", latitude=" + latitude + ", longitude=" + longitude + "]";
     }
 
+    /*****************/
+    /** Description **/
+    /*****************/
 
-    /*********/
-    /** Bus **/
-    /*********/
-
-    public static class BusLD {
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("@id")
-        private String id;
+    public static class Description {
 
         @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("description")
-        private Description description;
+        @JsonProperty("@language")
+        private String language;
 
         @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("wikibase:geoLatitude")
-        private Double latitude;
+        @JsonProperty("@value")
+        private String value;
 
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("wikibase:geoLongitude")
-        private Double longitude;
-
-        @JsonIgnoreProperties(ignoreUnknown = true)
-        @JsonProperty("label")
-        private Label label;
-
-        public BusLD() {
+        public Description() {
         }
 
-        public BusLD(String id, Description description, Double latitude, Double longitude, Label label) {
-            this.id = id;
-            this.description = description;
-            this.latitude = latitude;
-            this.longitude = longitude;
-            this.label = label;
+        public Description(String language, String value) {
+            this.language = language;
+            this.value = value;
         }
 
-        public String getId() {
-            return id;
+        public String getLanguage() {
+            return language;
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void setLanguage(String language) {
+            this.language = language;
         }
 
-        public Description getDescription() {
-            return description;
+        public String getValue() {
+            return value;
         }
 
-        public void setDescription(Description description) {
-            this.description = description;
-        }
-
-        public Double getLatitude() {
-            return latitude;
-        }
-
-        public void setLatitude(Double latitude) {
-            this.latitude = latitude;
-        }
-
-        public Double getLongitude() {
-            return longitude;
-        }
-
-        public void setLongitude(Double longitude) {
-            this.longitude = longitude;
-        }
-
-        public Label getLabel() {
-            return label;
-        }
-
-        public void setLabel(Label label) {
-            this.label = label;
+        public void setValue(String value) {
+            this.value = value;
         }
 
         @Override
         public String toString() {
-            return "BusLD [description=" + description + ", id=" + id + ", label=" + label + ", latitude=" + latitude
-                    + ", longitude=" + longitude + "]";
-        }
-
-
-        /*****************/
-        /** Description **/
-        /*****************/
-
-        public static class Description {
-
-            @JsonIgnoreProperties(ignoreUnknown = true)
-            @JsonProperty("@language")
-            private String language;
-
-            @JsonIgnoreProperties(ignoreUnknown = true)
-            @JsonProperty("@value")
-            private String value;
-
-            public Description() {
-            }
-
-            public Description(String language, String value) {
-                this.language = language;
-                this.value = value;
-            }
-
-            public String getLanguage() {
-                return language;
-            }
-
-            public void setLanguage(String language) {
-                this.language = language;
-            }
-
-            public String getValue() {
-                return value;
-            }
-
-            public void setValue(String value) {
-                this.value = value;
-            }
-
-            @Override
-            public String toString() {
-                return "Description [language=" + language + ", value=" + value + "]";
-            }
-
-        }
-
-
-        /***********/
-        /** Label **/
-        /***********/
-
-        public static class Label {
-
-            @JsonIgnoreProperties(ignoreUnknown = true)
-            @JsonProperty("@language")
-            private String language;
-
-            @JsonIgnoreProperties(ignoreUnknown = true)
-            @JsonProperty("@value")
-            private String value;
-
-            public Label() {
-            }
-
-            public Label(String language, String value) {
-                this.language = language;
-                this.value = value;
-            }
-
-            public String getLanguage() {
-                return language;
-            }
-
-            public void setLanguage(String language) {
-                this.language = language;
-            }
-
-            public String getValue() {
-                return value;
-            }
-
-            public void setValue(String value) {
-                this.value = value;
-            }
-
-            @Override
-            public String toString() {
-                return "Label [language=" + language + ", value=" + value + "]";
-            }
-
+            return "Description [language=" + language + ", value=" + value + "]";
         }
 
     }
 
+    /***********/
+    /** Label **/
+    /***********/
+
+    public static class Label {
+
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        @JsonProperty("@language")
+        private String language;
+
+        @JsonIgnoreProperties(ignoreUnknown = true)
+        @JsonProperty("@value")
+        private String value;
+
+        public Label() {
+        }
+
+        public Label(String language, String value) {
+            this.language = language;
+            this.value = value;
+        }
+
+        public String getLanguage() {
+            return language;
+        }
+
+        public void setLanguage(String language) {
+            this.language = language;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return "Label [language=" + language + ", value=" + value + "]";
+        }
+
+    }
 
     /*************/
     /** Context **/
@@ -831,7 +793,6 @@ public class SparqlBusRequestLDModel {
                     + ", wdtn=" + wdtn + ", wdv=" + wdv + ", wikibase=" + wikibase + ", xsd=" + xsd + "]";
         }
 
-
         /*****************/
         /** GeoLatitude **/
         /*****************/
@@ -876,7 +837,6 @@ public class SparqlBusRequestLDModel {
             }
 
         }
-
 
         /******************/
         /** GeoLongitude **/
@@ -923,7 +883,6 @@ public class SparqlBusRequestLDModel {
 
         }
 
-
         /******************/
         /** Description **/
         /*****************/
@@ -956,7 +915,6 @@ public class SparqlBusRequestLDModel {
 
         }
 
-        
         /***********/
         /** Label **/
         /***********/
