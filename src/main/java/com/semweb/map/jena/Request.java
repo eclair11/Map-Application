@@ -27,9 +27,9 @@ public class Request {
         QueryExecution exec = QueryExecutionFactory.sparqlService(endpoint, query);
         Model model = exec.execConstruct();
         try {
-            FileWriter writer = new FileWriter("./request.txt");
+            FileWriter writer = new FileWriter("./output.txt");
             model.write(writer, "JSONLD");
-            content = new String(Files.readAllBytes(Paths.get("./request.txt")));
+            content = new String(Files.readAllBytes(Paths.get("./output.txt")));
         } catch (IOException e) {
             System.err.println(e);
         }
@@ -57,9 +57,9 @@ public class Request {
         Model model = exec.execConstruct();
         String size = String.valueOf(model.size() / construct.split(";").length);
         try {
-            FileWriter writer = new FileWriter("./request.txt");
+            FileWriter writer = new FileWriter("./output.txt");
             model.write(writer, "JSONLD");
-            content = new String(Files.readAllBytes(Paths.get("./request.txt")));
+            content = new String(Files.readAllBytes(Paths.get("./output.txt")));
         } catch (IOException e) {
             System.err.println(e);
         }
@@ -68,7 +68,7 @@ public class Request {
         return result;
     }
 
-    public static Map<String, String> getNearbyStations(String id) {
+    public static Map<String, String> getNearbyStations(Double lon, Double lat) {
         Map<String, String> result = new HashMap<>();
         String content = "";
         String endpoint = "https://query.wikidata.org/sparql";
@@ -81,8 +81,8 @@ public class Request {
                 + "wikibase:geoLongitude ?lon ; " + "wikibase:geoLatitude ?lat . } ";
         String where = "WHERE { ?item wdt:P31/wdt:P279* wd:Q548662 ; " + "wdt:P17 wd:Q142 ; " + "wdt:P625 ?geo1 ; "
                 + "p:P625 ?coord . " + "?coord psv:P625 ?node . " + "?node wikibase:geoLongitude ?lon ; "
-                + "wikibase:geoLatitude ?lat . " + "wd:Q23021255 wdt:P625 ?geo2 . "
-                + "FILTER(geof:distance(?geo1, ?geo2) <= 30) . "
+                + "wikibase:geoLatitude ?lat . "
+                + "FILTER(geof:distance(?geo1, \"POINT(" + lon + " " + lat + ")\") <= 3) . "
                 + "SERVICE wikibase:label { bd:serviceParam wikibase:language \"fr, en\" } }";
         String request = prefix + construct + where;
         Query query = QueryFactory.create(request, Syntax.syntaxARQ);
@@ -90,9 +90,9 @@ public class Request {
         Model model = exec.execConstruct();
         String size = String.valueOf(model.size() / construct.split(";").length);
         try {
-            FileWriter writer = new FileWriter("./requestMultiple.txt");
+            FileWriter writer = new FileWriter("./output.txt");
             model.write(writer, "JSONLD");
-            content = new String(Files.readAllBytes(Paths.get("./request.txt")));
+            content = new String(Files.readAllBytes(Paths.get("./output.txt")));
         } catch (IOException e) {
             System.err.println(e);
         }
@@ -102,7 +102,7 @@ public class Request {
     }
 
     public static void main(String[] args) {
-        getNearbyStations("Q119911");
+        getNearbyStations(4.36361, 45.48139);
     }
 
 }

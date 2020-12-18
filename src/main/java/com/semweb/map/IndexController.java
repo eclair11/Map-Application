@@ -60,7 +60,8 @@ public class IndexController {
     @RequestMapping("/")
     public String index(Model model, Reponse reponse) {
         model.addAttribute("reponse", reponse);
-        return "index";
+        Record.load();
+        return "redirect:/map";
     }
 
     /* Data addition on Jena Fuseki Rest Resource */
@@ -210,6 +211,31 @@ public class IndexController {
             for (HospitalLD hos : testLD.getGraph()) {
                 hospitals.add(hos);
             }
+        }
+
+        hospitals.sort(Comparator.comparing(HospitalLD::getName, String.CASE_INSENSITIVE_ORDER));
+        model.addAttribute("hospitals", hospitals);
+
+        return model;
+
+    }
+
+    /**
+     * Retrieves the list of stops near the hospital chosen by the user, sorts it,
+     * fills in the template and inserts it in the view.
+     */
+    private Model buildNearbyStopsModel(Model model, ReponseVille reponseVille, ArrayList<HospitalLD> hospitals)
+            throws JsonMappingException, JsonProcessingException {
+
+        Map<String, String> nearbyList = Request.getNearbyStations(currentLon, currentLat);
+
+        /* Get list with 1 stop */
+        if (Long.valueOf(nearbyList.get("size")) == 1) {
+            
+        }
+        /* Get list with more than 1 stop */
+        else {
+            
         }
 
         hospitals.sort(Comparator.comparing(HospitalLD::getName, String.CASE_INSENSITIVE_ORDER));
